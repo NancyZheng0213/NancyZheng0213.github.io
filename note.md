@@ -1,5 +1,6 @@
 ---
 author: Nancy
+permalink: /note.html
 output:
     pdf_document:
         toc: true
