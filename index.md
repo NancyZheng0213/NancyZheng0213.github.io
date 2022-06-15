@@ -9,4 +9,4 @@
 
 ## 2. RL笔记
 
-[笔记](https://nancyzheng0213.github.io/NancyZheng0213/note.html)  
+[笔记](https://nancyzheng0213.github.io/note.html)  
