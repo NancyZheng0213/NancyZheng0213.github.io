@@ -20,6 +20,11 @@ export_on_save:
     - [1.1 git的组成结构](#11-git的组成结构)
 
 ---
+<style>
+    div {
+        background-color: lightgrey;
+    }
+</style>
 
 ## 1. 什么是git
 
@@ -31,6 +36,7 @@ export_on_save:
 
 - <b>工作区</b>：即个人电脑上的文件夹目录
 - <b>暂存区</b>：追踪（<code>git add</code>）工作区的文件后，
+- <b>版本库</b>：对应工作区的隐藏文件夹<div>.git</div>，
 
 > 参考资料：  
 > [1] [Git教程 | 菜鸟教程](https://www.runoob.com/git/git-tutorial.html)
