@@ -7,6 +7,8 @@
 
 ## 1. Git介绍  
 
+[笔记](https://nancyzheng0213.github.io/GitNote.html)
+
 ## 2. RL笔记
 
 [笔记](https://nancyzheng0213.github.io/note.html)  
