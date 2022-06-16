@@ -30,7 +30,7 @@ export_on_save:
 <p style="text-indent:2em"> git的结构如图，分为<b>工作区</b>、<b>暂存区</b>（stage或index，索引）和<b>版本库</b>（repository，仓库）。</p>
 
 - <b>工作区</b>：即个人电脑上的文件夹目录
-- <b>暂存区</b>：追踪（<q>git add</q>）工作区的文件后，
+- <b>暂存区</b>：追踪（<code>git add</code>）工作区的文件后，
 
 > 参考资料：  
 > [1] [Git教程 | 菜鸟教程](https://www.runoob.com/git/git-tutorial.html)
