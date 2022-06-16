@@ -30,5 +30,5 @@ export_on_save:
 <p style="text-indent:2em"> git的结构如图，分为工作区、暂存区和版本库</p>
 
 > 参考资料：  
-> [[1] https://www.runoob.com/git/git-tutorial.html](https://www.runoob.com/git/git-tutorial.html)
+> [1] [Git教程|菜鸟教程](https://www.runoob.com/git/git-tutorial.html)
 
