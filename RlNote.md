@@ -17,14 +17,14 @@ export_on_save:
 # 吴恩达机器学习经典名课【中英字幕】
 
 <head>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-            inlineMath: [['$','$']]
-            }
-        });
+   <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {
+         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+         processEscapes: true
+         }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
     </script>
 </head>
 
