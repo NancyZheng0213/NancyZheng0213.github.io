@@ -36,7 +36,7 @@ export_on_save:
 
 - <b>工作区</b>：即个人电脑上的文件夹目录
 - <b>暂存区</b>：追踪（<code>git add</code>）工作区的文件后，
-- <b>版本库</b>：对应工作区的隐藏文件夹<div>.git</div>，
+- <b>版本库</b>：对应工作区的隐藏文件夹<code>.git</code>，
 
 > 参考资料：  
 > [1] [Git教程 | 菜鸟教程](https://www.runoob.com/git/git-tutorial.html)
