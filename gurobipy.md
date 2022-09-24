@@ -49,7 +49,6 @@ Model的最低级构建模块是变量、约束和目标。
     ``` python {.line-numbers}  
     # 默认环境  
     model = gp.Model("model")  
-
     # 新建环境  
     env = Env("my.log")  
     m2 = Model("NewModel2", env)  
