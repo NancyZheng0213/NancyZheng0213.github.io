@@ -46,7 +46,7 @@ Model的最低级构建模块是变量、约束和目标。
     - ```name``` (string)：新模型的名称。
     - ```env``` (Env)：创建模型的环境。使用Env函数构造环境对象并输入。
 
-    ``` python {.line-numbers}
+    ``` python {.line-numbers}  
     # 默认环境  
     model = gp.Model("model")  
 
@@ -126,6 +126,6 @@ Model的最低级构建模块是变量、约束和目标。
 
     > 一个约束只能有一个比较运算符。虽然 $1 <= x + y <= 2$ 可能看起来像一个有效的约束，但 addConstr 不会接受它。  
 
-2. `Model.addConstrs(generator, name="" )`
+2. `Model.addConstrs(generator, name="")`
 
 ---
