@@ -46,13 +46,13 @@ Model的最低级构建模块是变量、约束和目标。
     - ```name``` (string)：新模型的名称。
     - ```env``` (Env)：创建模型的环境。使用Env函数构造环境对象并输入。
 
-    ```python {.line-numbers}
-    # 默认环境
-    model = gp.Model("model")
+    ``` python {.line-numbers}
+    # 默认环境  
+    model = gp.Model("model")  
 
-    # 新建环境
-    env = Env("my.log")
-    m2 = Model("NewModel2", env)
+    # 新建环境  
+    env = Env("my.log")  
+    m2 = Model("NewModel2", env)  
     ```
 
 2. 从文件加载模型：[```read```函数](https://www.gurobi.com/documentation/9.5/refman/py_read.html#pythonmethod:read)
@@ -71,11 +71,11 @@ Model的最低级构建模块是变量、约束和目标。
     - ```column``` (Column)：column对象，指示新变量参与的约束集以及相关系数。
     - 返回值：新的```Var```对象。  
 
-    ```python {.line-numbers}
-    x = model.addVar()
-    y = model.addVar(vtype=GRB.INTEGER, obj=1.0, name="y")
-    z = model.addVar(0.0, 1.0, 1.0, GRB.BINARY, "z")
-    ```
+    ``` python {.line-numbers}  
+    x = model.addVar()  
+    y = model.addVar(vtype=GRB.INTEGER, obj=1.0, name="y")  
+    z = model.addVar(0.0, 1.0, 1.0, GRB.BINARY, "z")  
+    ```  
   
 2. ```Model.addVars(*indices, lb=0.0, ub=float('inf'), obj=0.0, vtype=GRB.CONTINUOUS, name="")```
     - ```indices```：用于访问新变量的索引。
@@ -84,11 +84,11 @@ Model的最低级构建模块是变量、约束和目标。
     - 如果为```name```指定标量字符串，则变量```name```将自动下标。
     - 返回值：包含新变量作为值的新```tupledict```对象，使用提供的索引作为键。
 
-    ```python {.line-numbers}
-    x = model.addVars(3, 4, 5, vtype=GRB.BINARY)
-    l = tuplelist([(1, 2), (1, 3), (2, 3)])
-    y = model.addVars(l, ub=[1, 2, 3])
-    ```
+    ``` python {.line-numbers}  
+    x = model.addVars(3, 4, 5, vtype=GRB.BINARY)  
+    l = tuplelist([(1, 2), (1, 3), (2, 3)])  
+    y = model.addVars(l, ub=[1, 2, 3])  
+    ```  
   
 3. ```Model.addMVar(shape, lb=0.0, ub=float('inf'), obj=0.0, vtype=GRB.CONTINUOUS, name="")```  
     - ```shape``` (tuple): 数组的形状。
@@ -99,10 +99,10 @@ Model的最低级构建模块是变量、约束和目标。
     - ```name``` (string): 新变量的名称。 给定名称将由生成器表达式的索引下标，因此如果索引是整数，$ 将变为 $c_0$、$c_1$ 等。
     - 返回值：```MVar```对象。
 
-    ```python {.line-numbers}
-    x = model.addMVar(10)                       # 包含10个变量的一维数组
-    y = model.addMVar((3,4), vtype=GRB.BINARY)  # 3*4的二进制二维数组
-    ```
+    ``` python {.line-numbers}  
+    x = model.addMVar(10)                       # 包含10个变量的一维数组  
+    y = model.addMVar((3,4), vtype=GRB.BINARY)  # 3*4的二进制二维数组  
+    ```  
 
 ### 4. 添加约束的方法  
 
@@ -114,18 +114,18 @@ Model的最低级构建模块是变量、约束和目标。
       - ```tc```是二次表达式：```QConstr```对象；
       - ```tc```是一般约束表达式：```GenConstr```对象；  
 
-    ```python {.line-numbers}
-    c = model.addConstr(x + y <= 1, "c1")
-    c = model.addConstr(x + y + z == [1, 2], "rgc0")
-    c = model.addConstr(x*x + y*y <= 1)
-    c = model.addConstr(z == and_(y, x, w))
-    c = model.addConstr(z == min_(x, y))
-    c = model.addConstr((w == 1) >> (x + y <= 1), "ic0")
-    c = model.addConstr(A @ x <= b)
-    ```
+    ``` python {.line-numbers}  
+    c = model.addConstr(x + y <= 1, "c1")  
+    c = model.addConstr(x + y + z == [1, 2], "rgc0")  
+    c = model.addConstr(x*x + y*y <= 1)  
+    c = model.addConstr(z == and_(y, x, w))  
+    c = model.addConstr(z == min_(x, y))  
+    c = model.addConstr((w == 1) >> (x + y <= 1), "ic0")  
+    c = model.addConstr(A @ x <= b)  
+    ```  
 
     > 一个约束只能有一个比较运算符。虽然 $1 <= x + y <= 2$ 可能看起来像一个有效的约束，但 addConstr 不会接受它。  
 
-2. ```Model.addConstrs(generator, name="" )```
+2. `Model.addConstrs(generator, name="" )`
 
 ---
