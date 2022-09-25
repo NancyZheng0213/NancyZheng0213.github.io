@@ -123,7 +123,7 @@ Model的最低级构建模块是变量、约束和目标。
     c = model.addConstr(A @ x <= b)  
     ```  
 
-    > 一个约束只能有一个比较运算符。虽然 \(1<=x+y<=2\) 可能看起来像一个有效的约束，但 addConstr 不会接受它。  
+    > 一个约束只能有一个比较运算符。虽然 \(1 < = x + y < = 2\) 可能看起来像一个有效的约束，但 addConstr 不会接受它。  
 
 2. `Model.addConstrs(generator, name="")`
     - ```generator```：生成器表达式，每次迭代产生一个约束。
