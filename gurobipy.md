@@ -11,7 +11,21 @@ export_on_save:
   prince: true
 ---
 
+<!-- markdownlint-disable-file MD033 -->
+
 # GUROBI笔记（python）
+
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
 
 在利用 Python+Gurobi 建立数学规划模型时，通常会按照设置变量、更新变量空间、设置目标函数、设置约束条件、执行最优化的顺序进行。  
 
