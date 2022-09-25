@@ -46,7 +46,7 @@ Model的最低级构建模块是变量、约束和目标。
     - ```name``` (string)：新模型的名称。
     - ```env``` (Env)：创建模型的环境。使用Env函数构造环境对象并输入。
 
-    ``` python {.line-numbers}  
+    ```python  
     # 默认环境  
     model = gp.Model("model")  
     # 新建环境  
