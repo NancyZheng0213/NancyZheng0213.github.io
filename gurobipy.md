@@ -113,7 +113,7 @@ Model的最低级构建模块是变量、约束和目标。
       - ```tc```是二次表达式：```QConstr```对象；
       - ```tc```是一般约束表达式：```GenConstr```对象；  
 
-    ``` python  
+    ``` python {.line-numbers}  
     c = model.addConstr(x + y <= 1, "c1")  
     c = model.addConstr(x + y + z == [1, 2], "rgc0")  
     c = model.addConstr(x*x + y*y <= 1)  
