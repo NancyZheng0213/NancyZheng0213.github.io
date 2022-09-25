@@ -95,7 +95,7 @@ Model的最低级构建模块是变量、约束和目标。
     - ```ub``` (float)：新变量的上限。
     - ```obj``` (float)：新变量的目标系数。
     - ```vtype``` (string)：新变量的变量类型。
-    - ```name``` (string): 新变量的名称。 给定名称将由生成器表达式的索引下标，因此如果索引是整数，$ 将变为 $c_0$、$c_1$ 等。
+    - ```name``` (string): 新变量的名称。 给定名称将由生成器表达式的索引下标，因此如果索引是整数，将变为 c<sub>0</sub>、c<sub>1<\sub> 等。
     - 返回值：```MVar```对象。
 
     ``` python  
@@ -105,7 +105,7 @@ Model的最低级构建模块是变量、约束和目标。
 
 ### 4. 添加约束的方法  
 
-1. ```Model.addConstr( constr, name="" )```  
+1. ```Model.addConstr(constr, name="")```  
     - ```tc``` (TempConstr [[网页](https://www.gurobi.com/documentation/9.5/refman/py_tempconstr.html#pythonclass:TempConstr)、[本地](D:/gurobi952/win64/docs/refman/py_tempconstr.html#pythonclass:TempConstr)])：要添加的约束。
     - ```name``` (string): 约束的名称。
     - 返回值：取决于```tc```
@@ -123,8 +123,9 @@ Model的最低级构建模块是变量、约束和目标。
     c = model.addConstr(A @ x <= b)  
     ```  
 
-    > 一个约束只能有一个比较运算符。虽然 $1 <= x + y <= 2$ 可能看起来像一个有效的约束，但 addConstr 不会接受它。  
+    > 一个约束只能有一个比较运算符。虽然 1 <= x + y <= 2 可能看起来像一个有效的约束，但 addConstr 不会接受它。  
 
 2. `Model.addConstrs(generator, name="")`
+    - ```generator```：生成器表达式，每次迭代产生一个约束。
 
 ---
