@@ -20,15 +20,15 @@ export_on_save:
     - [1.1 git的组成结构](#11-git的组成结构)
 
 ---
-<style>
+<!-- <style>
     div {
         background-color: lightgrey;
     }
-</style>
+</style> -->
 
 ## 1. 什么是git
 
-<p style="text-indent:2em"> git是一个开源的<b>分布式</b>版本控制系统<sup>[1]</sup>，用于项目开发的过程版本控制，可以回溯历史版本。 </p>
+<p style="text-indent:2em"> git是一个开源的<b><font color=blue>分布式</font></b>版本控制系统<sup>[1]</sup>，用于项目开发的过程版本控制，可以回溯历史版本。 </p>
 
 ### 1.1 git的组成结构
 
