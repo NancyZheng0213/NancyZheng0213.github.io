@@ -10,3 +10,5 @@
 ## 2. [RL笔记](https://nancyzheng0213.github.io/note.html)  
 
 ## 3. [GUROBI笔记](https://nancyzheng0213.github.io/GUROBInote.html)
+
+## 4. [Java笔记](https://nancyzheng0213.github.io/JavaNote.html)
