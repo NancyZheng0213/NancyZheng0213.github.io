@@ -1,47 +1,65 @@
 #JavaNote {
-    font-family:"Microsoft Yahei", sans-serif;
-    font-family:Arial, sans-serif;
-    background-color:#222;
-    color:#FFF;      
+    font-family: "Microsoft Yahei", sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #FFF;      
     h1, h2, h3, h4, h5, h6 {
-        font-family:Georgia, serif;
-        font-family:"SimSun", serif;
-        color:#FFF;
+        font-family: Georgia, serif;
+        font-family: "SimSun", serif;
+        color: #FFF;
     }
     h1, h2 {
-        font-weight:bolder;
+        font-weight: bolder;
     }
-    body {
-        margin:0;
-        padding:2em;
+    h1 {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        padding: 20px 0;
+        margin: 0 auto;
+        background-color:#222;
+        text-align: center;
     }
-    article {
-        padding:10px;
-        margin:10px;
+    h2 {
+        position: sticky;
+        top: 0;
+        padding: 20px 0;
+        margin: 0 auto;
+        background-color:#222;
     }
     section {
-        display:flex
+        display: flex;
+        margin-top: 68px;
     }      
     blockquote {
-        background-color:#444;
-        color:#e2e2e2;
-        font-size:18px;
-        font-family:"kaiti", serif;
-        // margin:8px;
-        // margin-left:10%;
-        // margin-right:10%;
-        padding:16px;
-        line-height:20px;
-        border:0;
-        // border-radius:10px;
+        background-color: #444;
+        color: #e2e2e2;
+        font-size: 18px;
+        font-family: "kaiti", serif;
+        padding: 16px;
+        line-height: 20px;
+        border: 0;
     }
     blockquote>ol {
-        margin:0;
+        margin: 0;
     }
     blockquote b {
-        font-weight:thin;
+        font-weight: thin;
+    }
+    div ul li a {
+        font-size: 15px;
+        line-height: 16px;
     }
     .definition {
-        color:#6699CC;
+        color: #6699CC;
+    }
+    .toc {
+        position: fixed;
+        top: 68px;
+        width: 130px;
+    }
+    .main-artical {
+        top: 68px;
+        margin-left: 135px;
     }
 }

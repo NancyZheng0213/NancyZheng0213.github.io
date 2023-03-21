@@ -1,0 +1,208 @@
+<!DOCTYPE html><html><head>
+      <title>JavaNote</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;background-color:#282828;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}
+      @media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}
+      @media screen and (min-width:914px){
+        html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}
+      }
+      @media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}
+      @media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}
+      @media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  font-family: 'Microsoft Yahei', "SimHei";
+  font-family: 'Times New Roman', Times, serif;
+}
+.markdown-preview.markdown-preview h1 {
+  font-family: "New Song Ti";
+  font-size: 28px;
+}
+.markdown-preview.markdown-preview h2 {
+  font-size: 23px;
+}
+.markdown-preview.markdown-preview h3 {
+  font-size: 21px;
+}
+@media print {
+  .markdown-preview.markdown-preview {
+    font-family: 'Microsoft Yahei', "SimHei";
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+  }
+  .markdown-preview.markdown-preview h1 {
+    font-family: "Microsoft Yahei";
+    font-size: 28px;
+  }
+  .markdown-preview.markdown-preview h2 {
+    font-size: 18px;
+  }
+  .markdown-preview.markdown-preview h3 {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 914px) {
+  .markdown-preview.markdown-preview html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+    padding: 2em !important;
+  }
+}
+@media screen and (max-width: 914px) {
+  .markdown-preview.markdown-preview html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+    padding: 2em;
+  }
+}
+@media screen and (max-width: 450px) {
+  .markdown-preview.markdown-preview html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+    font-size: 14px !important;
+    padding: 1em;
+  }
+}
+@media print {
+  .markdown-preview.markdown-preview html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+    display: none;
+  }
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  " id="JavaNote">
+      <style>#JavaNote {
+  font-family: "Microsoft Yahei", sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #222;
+  color: #FFF;
+}
+#JavaNote h1,
+#JavaNote h2,
+#JavaNote h3,
+#JavaNote h4,
+#JavaNote h5,
+#JavaNote h6 {
+  font-family: Georgia, serif;
+  font-family: "SimSun", serif;
+  color: #FFF;
+}
+#JavaNote h1,
+#JavaNote h2 {
+  font-weight: bolder;
+}
+@media screen and (min-width: 914px) {
+  #JavaNote html body[for="html-export"]:not([data-presentation-mode]) {
+    padding: 2em !important;
+  }
+}
+@media screen and (max-width: 914px) {
+  #JavaNote html body[for="html-export"]:not([data-presentation-mode]) {
+    padding: 2em;
+  }
+}
+@media screen and (max-width: 450px) {
+  #JavaNote html body[for="html-export"]:not([data-presentation-mode]) {
+    font-size: 14px !important;
+    padding: 1em;
+  }
+}
+@media print {
+  #JavaNote html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+    display: none;
+  }
+}
+#JavaNote section {
+  display: flex;
+}
+#JavaNote blockquote {
+  background-color: #444;
+  color: #e2e2e2;
+  font-size: 18px;
+  font-family: "kaiti", serif;
+  padding: 16px;
+  line-height: 20px;
+  border: 0;
+}
+#JavaNote blockquote > ol {
+  margin: 0;
+}
+#JavaNote blockquote b {
+  font-weight: thin;
+}
+#JavaNote div ul li a {
+  font-size: 15px;
+  line-height: 16px;
+}
+#JavaNote .definition {
+  color: #6699CC;
+}
+</style>
+<h1 class="mume-header" id="java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">Java&#x5B66;&#x4E60;&#x7B14;&#x8BB0;</h1>
+
+<hr>
+<section>
+<div>
+<ul>
+<li><a href="#java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">Java&#x5B66;&#x4E60;&#x7B14;&#x8BB0;</a>
+<ul>
+<li><a href="#1-java%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D">1. Java&#x73AF;&#x5883;&#x4ECB;&#x7ECD;</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div>
+<blockquote>
+<h6>&#x4E00;&#x4E9B;&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#xFF1A;</h6>
+<ul>
+<li><b class="definition">&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#xFF08;programming language&#xFF09;</b>&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x673A;&#x5668;&#x548C;&#x4EBA;&#x90FD;&#x80FD;&#x8BC6;&#x522B;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x5206;&#x4E3A;<span class="definition">&#x673A;&#x5668;&#x8BED;&#x8A00;</span>&#x3001;<span class="definition">&#x6C47;&#x7F16;&#x8BED;&#x8A00;</span>&#x548C;<span class="definition">&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;</span>&#x3002;</li>
+<li><b class="definition">&#x673A;&#x5668;&#x8BED;&#x8A00;&#xFF08;machine language&#xFF09;</b>&#x7528;&#x4E8C;&#x8FDB;&#x5236;&#x4EE3;&#x7801;&#x8868;&#x793A;&#xFF0C;&#x662F;&#x673A;&#x5668;&#x80FD;&#x76F4;&#x63A5;&#x8BC6;&#x522B;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x4E0D;&#x540C;&#x578B;&#x53F7;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x5176;&#x673A;&#x5668;&#x8BED;&#x8A00;&#x662F;&#x4E0D;&#x76F8;&#x901A;&#x7684;&#xFF0C;&#x6309;&#x7740;&#x4E00;&#x79CD;&#x8BA1;&#x7B97;&#x673A;&#x7684;&#x673A;&#x5668;&#x6307;&#x4EE4;&#x7F16;&#x5236;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x4E0D;&#x80FD;&#x5728;&#x53E6;&#x4E00;&#x79CD;&#x8BA1;&#x7B97;&#x673A;&#x4E0A;&#x6267;&#x884C;&#x3002;</li>
+<li><b class="definition">&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#xFF08;Assembly Language&#xFF09;</b>&#x4E5F;&#x79F0;&#x4E3A;<b class="definition">&#x7B26;&#x53F7;&#x8BED;&#x8A00;</b>&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x7528;&#x4E8E;&#x53EF;&#x7F16;&#x7A0B;&#x5668;&#x4EF6;&#xFF08;&#x5982;&#x5FAE;&#x5904;&#x7406;&#x5668;&#x3001;&#x7535;&#x5B50;&#x8BA1;&#x7B97;&#x673A;&#xFF09;&#x7684;&#x4F4E;&#x7EA7;&#x8BED;&#x8A00;&#xFF0C;&#x7528;&#x7F29;&#x5199;&#x5355;&#x8BCD;&#x6765;&#x4EE3;&#x66FF;&#x7279;&#x5B9A;&#x7684;&#x6307;&#x4EE4;&#xFF0C;&#x901A;&#x8FC7;<span class="definition">&#x6C47;&#x7F16;&#x8FC7;&#x7A0B;</span>&#x8F6C;&#x6362;&#x6210;&#x673A;&#x5668;&#x6307;&#x4EE4;&#x3002;&#x7279;&#x5B9A;&#x7684;&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#x548C;&#x7279;&#x5B9A;&#x7684;&#x673A;&#x5668;&#x8BED;&#x8A00;&#x6307;&#x4EE4;&#x96C6;&#x662F;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x7684;&#xFF0C;&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x4E4B;&#x95F4;&#x4E0D;&#x53EF;&#x76F4;&#x63A5;&#x79FB;&#x690D;&#x3002;</li>
+<li><b class="definition">&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;&#xFF08;High-level programming language&#xFF09;</b>&#x5982; C&#x3001;Java&#x3001;python&#xFF0C;&#x5177;&#x6709;&#x62BD;&#x8C61;&#x529F;&#x80FD;&#xFF0C;&#x662F;&#x4EBA;&#x7C7B;&#x5BB9;&#x6613;&#x8BC6;&#x522B;&#x7684;&#x8BED;&#x8A00;&#x3002;&#x901A;&#x8FC7;<span class="definition">&#x7F16;&#x8BD1;&#x5668;</span>&#x7FFB;&#x8BD1;&#x6210;&#x673A;&#x5668;&#x8BED;&#x8A00;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x53D7;&#x9650;&#x4E8E; CPU &#x7C7B;&#x578B;&#xFF08;Intel &#x6216; ARM&#xFF09;&#x6216;&#x6307;&#x4EE4;&#x96C6;&#x3002;</li>
+<li><b class="definition">&#x7F16;&#x8BD1;&#x5668;&#xFF08;Compiler&#xFF09;</b>&#x5C31;&#x662F;&#x5C06;&#x4E00;&#x79CD;&#x8BED;&#x8A00;&#xFF08;&#x901A;&#x5E38;&#x4E3A;&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;&#xFF09;&#x7FFB;&#x8BD1;&#x4E3A;&#x53E6;&#x4E00;&#x79CD;&#x8BED;&#x8A00;&#xFF08;&#x901A;&#x5E38;&#x4E3A;&#x4F4E;&#x7EA7;&#x8BED;&#x8A00;&#xFF09;&#x7684;&#x7A0B;&#x5E8F;&#x3002;&#x4F7F;&#x7528;&#x5408;&#x9002;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x4E00;&#x79CD;&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;&#x7A0B;&#x5E8F;&#x8F6C;&#x5316;&#x4E3A;&#x4F9B;&#x4E0D;&#x540C; CPU &#x4F7F;&#x7528;&#x7684;&#x673A;&#x5668;&#x8BED;&#x8A00;&#x7A0B;&#x5E8F;&#x3002;</li>
+<li><b class="definition">JDK&#xFF08;Java Development ToolKit&#xFF09;</b>&#x5373;Java&#x7684; <span class="definition">SDK&#xFF08;Software Development Kit&#xFF0C;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x5305;&#xFF09;</span>&#xFF0C;&#x662F;&#x6574;&#x4E2A; Java &#x7684;&#x6838;&#x5FC3;&#xFF0C;&#x5305;&#x62EC;&#x4E86; <span class="definition">JRE</span>&#x3001;&#x7F16;&#x8BD1; java &#x6E90;&#x7801;&#x7684;<span class="definition">&#x7F16;&#x8BD1;&#x5668; javac</span>&#xFF0C;&#x8FD8;&#x5305;&#x542B;&#x4E86;&#x5F88;&#x591A; java &#x7A0B;&#x5E8F;&#x8C03;&#x8BD5;&#x548C;&#x5206;&#x6790;&#x7684;&#x5DE5;&#x5177;&#xFF08;&#x5982;jconsole&#xFF0C;jvisualvm &#x7B49;&#x5DE5;&#x5177;&#x8F6F;&#x4EF6;&#xFF09;&#x4EE5;&#x53CA; java &#x7A0B;&#x5E8F;&#x7F16;&#x5199;&#x6240;&#x9700;&#x7684;&#x6587;&#x6863;&#x548C; demo &#x4F8B;&#x5B50;&#x7A0B;&#x5E8F;&#x3002;&#x7531; Sun &#x516C;&#x53F8;&#x53D1;&#x660E;&#xFF0C;&#x540E; Sun &#x5728; 09 &#x5E74;&#x88AB;&#x7532;&#x9AA8;&#x6587;&#xFF08;Oracle&#xFF09;&#x516C;&#x53F8;&#x6536;&#x8D2D;&#xFF0C;&#x53D8;&#x66F4;&#x4E3A; <span class="definition">OracleJDK</span>&#x3002;&#x5728;&#x88AB;&#x6536;&#x8D2D;&#x524D;&#xFF0C;Sun &#x516C;&#x53F8;&#x5C06; JDK &#x5F00;&#x6E90;&#xFF0C;&#x51FA;&#x73B0;&#x4E86; <span class="definition">OpenJDK</span>&#x3002;&#x6B64;&#x540E;&#xFF0C;&#x6BCF;&#x6B21; Oracle &#x516C;&#x53F8;&#x53D1;&#x5E03;&#x65B0;&#x7248;&#x7684; JDK &#x65F6;&#x4F1A;&#x53D1;&#x5E03;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#xFF1A;&#x4E00;&#x4E2A;&#x662F;&#x52A0;&#x4E86;&#x4E00;&#x4E9B;&#x81EA;&#x5DF1; Oracle &#x516C;&#x53F8;&#x7684;&#x5546;&#x4E1A;&#x6280;&#x672F;&#x7684; JDK (&#x5C31;&#x7C7B;&#x4F3C;&#x5728;&#x4E00;&#x4E2A;&#x7EAF;&#x51C0;&#x7684;&#x8F6F;&#x4EF6;&#x4E0A;&#x52A0;&#x4E86;&#x4E00;&#x4E9B;&#x81EA;&#x5DF1;&#x7684;&#x63D2;&#x4EF6;&#x7B49;) &#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x662F; OpenJDK&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x822C;&#x6CA1;&#x6709;&#x52A0;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x63D2;&#x4EF6;&#x7684;&#x7EAF;&#x51C0;&#x7248;&#x7684; JDK&#xFF09;&#x3002;</li>
+<li><b class="definition">JRE&#xFF08;Java Runtime Enviroment&#xFF09;</b>&#x662F;&#x8FD0;&#x884C; Java &#x7A0B;&#x5E8F;&#x6240;&#x5FC5;&#x987B;&#x73AF;&#x5883;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5305;&#x542B; <span class="definition">JVM&#xFF08;Java Virtual Machine&#xFF0C;Java &#x865A;&#x62DF;&#x673A;&#xFF09;</span>&#x6807;&#x51C6;&#x5B9E;&#x73B0;&#x53CA; Java &#x6838;&#x5FC3;&#x7C7B;&#x5E93;&#xFF0C;&#x4E0D;&#x5305;&#x542B;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#xFF08;&#x7F16;&#x8BD1;&#x5668;&#x3001;&#x8C03;&#x8BD5;&#x5668;&#x7B49;&#xFF09;&#x3002;</li>
+</ul>
+</blockquote>
+<h2>1. Java&#x73AF;&#x5883;&#x4ECB;&#x7ECD;</h2>
+<ol>
+<li><b class="definition">Java&#x7F16;&#x7A0B;&#x73AF;&#x5883;</b>&#x7531;<b class="definition">Java&#x8BED;&#x8A00;</b>&#x548C;<b class="definition">&#x8FD0;&#x884C;&#x65F6;</b>&#x7EC4;&#x6210;&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#x901A;&#x5E38;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;<b class="definition">Java&#x865A;&#x62DF;&#x673A;</b>&#xFF08;Java Virtual Machine&#xFF0C;<b class="definition">JVM</b>&#xFF09;&#x3002;</li>
+<li><b class="definition">Java&#x8BED;&#x8A00;</b>&#x662F;&#x4E00;&#x79CD;&#x57FA;&#x4E8E;&#x7C7B;&#x3001;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x53EF;&#x8BFB;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x3002;
+<ol>
+<li>Java&#x8BED;&#x8A00;&#x7531;<b class="definition">Java&#x8BED;&#x8A00;&#x89C4;&#x8303;&#xFF08;JLS&#xFF09;</b>&#x63A7;&#x5236;&#xFF0C;JLS&#x89C4;&#x5B9A;&#x4E86;&#x7B26;&#x5408;&#x89C4;&#x8303;&#x7684;&#x5B9E;&#x73B0;&#x5FC5;&#x987B;&#x9075;&#x5B88;&#x7684;&#x6807;&#x51C6;&#x3002;</li>
+<li>Java&#x53E5;&#x6CD5;&#x90E8;&#x5206;&#x501F;&#x9274;&#x4E86;C&#x548C;C++&#x7B49;&#x8BED;&#x8A00;&#xFF0C;&#x6E90;&#x7801;&#x98CE;&#x683C;&#x5F88;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#x7531;&#x4E8E;Java&#x7684;&#x8BED;&#x8A00;&#x7279;&#x6027;&#x548C;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x5B58;&#x5728;&#xFF0C;Java&#x66F4;&#x50CF;&#x52A8;&#x6001;&#x8BED;&#x8A00;&#xFF08;&#x5982;Smalltalk&#xFF09;&#x3002;</li>
+</ol>
+</li>
+<li><b class="definition">JVM</b>&#x4E3A;Java&#x7A0B;&#x5E8F;&#x7684;&#x8FD0;&#x884C;&#x63D0;&#x4F9B;&#x5FC5;&#x987B;&#x7684;&#x73AF;&#x5883;&#xFF0C;&#x5176;&#x672C;&#x8D28;&#x662F;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x3002;
+<ol>
+<li>&#x5982;&#x679C;&#x67D0;&#x4E2A;&#x786C;&#x4EF6;&#x6216;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5E73;&#x53F0;&#x7F3A;&#x5C11;&#x5BF9;&#x5E94;&#x7684;JVM&#xFF0C;&#x5C06;&#x4E0D;&#x80FD;&#x8FD0;&#x884C;Java&#x7A0B;&#x5E8F;&#x3002;</li>
+<li>Java&#x7A0B;&#x5E8F;&#x5E38;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x542F;&#x52A8;&#xFF08;<code>java &lt;arguments&gt; &lt;program name&gt;</code>&#xFF09;&#xFF0C;&#x8BE5;&#x547D;&#x4EE4;&#x5C06;&#x5728;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E2D;&#x542F;&#x52A8;JVM&#xFF0C;&#x63D0;&#x4F9B;Java&#x8FD0;&#x884C;&#x65F6;&#x73AF;&#x5883;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x521A;&#x542F;&#x52A8;&#x7684;&#x7A7A;&#x7684;&#x865A;&#x62DF;&#x673A;&#x4E2D;&#x6309;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#x6307;&#x5B9A;&#x7684;&#x7A0B;&#x5E8F;&#x3002;</li>
+</ol>
+</li>
+</ol>
+</div>
+</section>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

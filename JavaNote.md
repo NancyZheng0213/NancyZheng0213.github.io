@@ -7,22 +7,20 @@ html:
 print_background: true
 ---
 
+<h1>Java 学习笔记</h1>
+
 @import "myStyle.less"
 
-# Java学习笔记
-
----
 <section>
-<div>
+<div class=toc>
 
-- [Java学习笔记](#java学习笔记)
-  - [1. Java环境介绍](#1-java环境介绍)
+- [1. Java环境介绍](#1-java环境介绍)
 
 </div>
 
-<div>
+<div class=main-artical>
 
-> ###### 一些基础知识：  
+> <b>一些基础知识：</b>  
 >
 > + <b class=definition>编程语言（programming language）</b>可以理解为机器和人都能识别的语言，分为<span class=definition>机器语言</span>、<span class=definition>汇编语言</span>和<span class=definition>高级语言</span>。  
 > + <b class=definition>机器语言（machine language）</b>用二进制代码表示，是机器能直接识别的语言，不同型号的计算机其机器语言是不相通的，按着一种计算机的机器指令编制的程序，不能在另一种计算机上执行。  
