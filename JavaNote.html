@@ -1,250 +1,494 @@
-<!DOCTYPE html>
-  <html>
-    <head>
+<!DOCTYPE html><html><head>
       <title>JavaNote</title>
       <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <style>
-      pre{
-        font-family:"Microsoft Yahei", sans-serif, Arial, sans-serif;
-        direction:ltr; text-align:left; white-space:pre; word-spacing:normal; word-break:normal;
-        padding:1em; margin:.5em 0; overflow:auto; line-height:1.5;
-        tab-size:4; hyphens:none;
-        color:#FFF; background-color:#222 !important; border:#43484c; border-radius:3px
-      }
-      pre[class*="language-"]{padding:1em}
-      code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}
-      code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}
-      code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}
-      code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}
-      code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}
-      code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}
-      code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}
-      code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}
-      code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}
-      code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}
-      code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}
-      code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}
-      code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}
-      code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}
-      code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}
-      code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}
-      code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}
-      code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}
-      code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}
-      code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}
-      code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}
-      pre[data-line]{position:relative;padding:1em 0 1em 3em}
-      pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}
-      pre[data-line] .line-highlight{
-        position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre
-      }
-      pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{
-        content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white
-      }
-      pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}
-      html body{
-        font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word
-      }
-      html body>:first-child{margin-top:0}
-      html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{
-        font-family: Georgia, serif, "SimSun", serif;
-        color: #FFF;
-        line-height:2.0;
-        margin-top:1em;
-        margin-bottom:16px;
-        page-break-after:avoid
-      }
-      html body h1{
-        font-size:28px;
-        font-weight:bolder;padding-bottom:.3em;
-        position: sticky;
-        width: 100%;
-        top: 0;
-        padding: 20px 0;
-        margin: 0 auto;
-        /* background-color: #222; */
-        text-align: center;
-      }
-      html body h2{
-        font-size:23px;font-weight:bolder;padding-bottom:.3em;
-        position: sticky;
-        top: 0;
-        padding: 20px 0;
-        margin: 0 auto;
-        background-color: #222;
-      }
-      html body h3{font-size:21px;font-weight:500}
-      html body h4{font-size:1.25em;font-weight:600}
-      html body h5{font-size:1.1em;font-weight:600}
-      html body h6{font-size:1em;font-weight:600}
-      html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}
-      html body h5{font-size:1em}
-      html body h6{color:#a3a3a3}
-      html body strong{color:#fff}
-      html body del{color:#a3a3a3}
-      html body a:not([href]){color:inherit;text-decoration:none}
-      html body a{color:#08c;text-decoration:none}
-      html body a:hover{color:#00a3f5;text-decoration:none}
-      html body img{max-width:100%}
-      html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}
-      html body>ul,html body>ol{margin-bottom:16px}
-      html body ul,html body ol{padding-left:2em}
-      html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}
-      html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}
-      html body li{margin-bottom:0}
-      html body li.task-list-item{list-style:none}
-      html body li>p{margin-top:0;margin-bottom:0}
-      html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}
-      html body .task-list-item-checkbox:hover{cursor:pointer}
-      html body blockquote{
-        margin:16px 0;
-        color:#ebebeb;
-        background-color: #444;
-        border:0;
-        font-size: 18px;
-        font-family: "kaiti", serif;
-        padding: 16px;
-        line-height: 1.2;
-      }
-      html body blockquote>:first-child{margin-top:0}
-      html body blockquote>:last-child{margin-bottom:0}
-      html body blockquote b {font-weight: thin;}
-      html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}
-      html body h1 + hr{margin:68px 0;}
-      html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}
-      html body table th{font-weight:bold;color:#fff}
-      html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}
-      html body dl{padding:0}
-      html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}
-      html body dl dd{padding:0 16px;margin-bottom:16px}
-      html body code{
-        font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0
-      }
-      html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}
-      html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}
-      html body .highlight{margin-bottom:16px}
-      html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}
-      html body .highlight pre{margin-bottom:0;word-break:normal}
-      html body pre code,html body pre tt{
-        display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0
-      }
-      html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}
-      html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}
-      html body kbd{
-        color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px
-      }
-      @media print{
-        html body{background-color:#141414}
-        html body blockquote{color:#a3a3a3}
-        html body pre{page-break-inside:avoid}
-        html body table{display:table}
-        html body img{display:block;max-width:100%;max-height:100%}
-        html body pre,html body code{word-wrap:break-word;white-space:pre}
-      }
-      .markdown-preview{width:100%;height:100%;box-sizing:border-box}
-      .markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}
+      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;background-color:#282828;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  font-family: 'Microsoft Yahei', "SimHei";
+  font-family: 'Times New Roman', Times, serif;
+}
+.markdown-preview.markdown-preview h1 {
+  font-family: "New Song Ti";
+  font-size: 28px;
+}
+.markdown-preview.markdown-preview h2 {
+  font-size: 23px;
+}
+.markdown-preview.markdown-preview h3 {
+  font-size: 21px;
+}
+.markdown-preview.markdown-preview h4 {
+  font-size: 18px;
+}
+@media print {
+  .markdown-preview.markdown-preview {
+    font-family: 'Microsoft Yahei', "SimHei";
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+  }
+  .markdown-preview.markdown-preview h1 {
+    font-family: "Microsoft Yahei";
+    font-size: 28px;
+  }
+  .markdown-preview.markdown-preview h2 {
+    font-size: 23px;
+  }
+  .markdown-preview.markdown-preview h3 {
+    font-size: 21px;
+  }
+}
+@media screen and (min-width: 914px) {
+  html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+    padding: 2em !important;
+  }
+}
+@media screen and (max-width: 914px) {
+  html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+    padding: 2em;
+  }
+}
+@media screen and (max-width: 450px) {
+  html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+    font-size: 14px !important;
+    padding: 1em;
+  }
+}
+@media print {
+  html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+    display: none;
+  }
+}
 
-      .markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}
-      .markdown-preview pre.line-numbers>code{position:relative}
-      .markdown-preview pre.line-numbers .line-numbers-rows{
-        position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none
-      }
-      .markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}
-      .markdown-preview pre.line-numbers .line-numbers-rows>span:before{
-        content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right
-      }
-      .markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}
-      .markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}
-      .markdown-preview:not([for="preview"]) .code-chunk .status{display:none}
-      .markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}
-      .markdown-preview .md-toc{padding:0}
-      .markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}
-      .markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}
-      .markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}
-      .scrollbar-style::-webkit-scrollbar{width:8px}
-      .scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}
-      .scrollbar-style::-webkit-scrollbar-thumb{
-        border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box
-      }
-      html body[for="html-export"]:not([data-presentation-mode]){
-        position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto
-      }
-      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}
-      @media screen and (min-width:914px){
-        html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{
-          padding:2em
-        }
-      }
-      @media screen and (max-width:914px){
-        html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}
-      }
-      @media screen and (max-width:450px){
-        html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}
-      }
-      @media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}
-      html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{
-        position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4
-      }
-      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}
-      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}
-      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}
-      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
-      /* Please visit the URL below for more information: */
-      /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
-      html body div ul li a {font-size: 15px;line-height: 16px;}
-      html body .definition {color: #6699CC;}
-      html body .box {display: flex; justify-content:space-between; margin-top: 100px; align-content: start; align-self: start; flex-basis: fit-content;}
-      html body .toc {position: fixed; top: 100px; width:15%; margin: 1em; border: 1px solid #00a3f5;}
-      html body .main-artical {position:absolute; width: 75%; top: 68px; right: 0;}
       </style>
     </head>
-
-    <!-- html -->
     <body for="html-export">
-      <div class="mume markdown-preview" id="JavaNote">
-        <h1>Java 学习笔记</h1>
-        <hr>
-        <div>
-          <div class="toc">
-            <ul>
-              <li><a href="#1-java%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D">1. Java 环境介绍</a></li>
-            </ul>
-          </div>
+      <div class="mume markdown-preview  " id="JavaNote">
+      <h1>Java &#x5B66;&#x4E60;&#x7B14;&#x8BB0;</h1>
+<style>#JavaNote {
+  font-family: "Microsoft Yahei", sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #222;
+  color: #FFF;
+}
+#JavaNote h1,
+#JavaNote h2,
+#JavaNote h3 {
+  font-family: Georgia, serif;
+  font-family: "SimSun", serif;
+  color: #FFF;
+}
+#JavaNote h1,
+#JavaNote h2 {
+  font-weight: bolder;
+}
+#JavaNote h1 {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  padding: 20px 0;
+  border-bottom: solid 5px #444;
+  background-color: #222;
+  text-align: center;
+}
+#JavaNote h2 {
+  position: sticky;
+  top: 0;
+  padding: 20px 0;
+  margin: 0 auto;
+  background-color: #222;
+}
+#JavaNote h4 {
+  font-weight: normal;
+}
+#JavaNote section {
+  display: flex;
+  margin-top: 30px;
+}
+#JavaNote blockquote {
+  background-color: #333;
+  color: #e2e2e2;
+  font-size: 16px;
+  font-family: "kaiti", serif;
+  font-family: Georgia, serif;
+  padding: 10px;
+  line-height: 20px;
+  border: 0;
+}
+#JavaNote blockquote > ol {
+  margin: 0;
+}
+#JavaNote blockquote b {
+  font-weight: thin;
+}
+#JavaNote div ul li a {
+  font-size: 15px;
+  line-height: 16px;
+}
+#JavaNote p {
+  text-indent: 30px;
+}
+#JavaNote code {
+  background-color: #2c3446;
+}
+#JavaNote .definition {
+  font-family: "kaiti", Times, serif;
+  font-size: 18px;
+  color: #6699CC;
+}
+#JavaNote .toc {
+  position: fixed;
+  width: 20%;
+}
+#JavaNote .main-artical {
+  margin-left: 23%;
+}
+#JavaNote .main-artical .foreword blockquote {
+  background-color: #36393b88;
+  padding: 20px;
+}
+#JavaNote .tip {
+  color: #000;
+  background-color: #ffb700;
+  padding: 0 2px;
+  margin: 0 5px;
+}
+#JavaNote .tip::before {
+  content: 'TIP';
+  font-weight: bold;
+}
+</style>
+<section>
+<div class="toc">
+<ul>
+<li><a href="#1-java%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D">1. Java&#x73AF;&#x5883;&#x4ECB;&#x7ECD;</a>
+<ul>
+<li><a href="#11-java%E8%AF%AD%E8%A8%80">1.1. Java&#x8BED;&#x8A00;</a></li>
+<li><a href="#12-jvm">1.2. JVM</a></li>
+<li><a href="#13-java-%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">1.3. Java &#x7A0B;&#x5E8F;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</a></li>
+</ul>
+</li>
+<li><a href="#2-java-%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84">2. Java &#x7684;&#x57FA;&#x672C;&#x7A0B;&#x5E8F;&#x7ED3;&#x6784;</a></li>
+<li><a href="#3-%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB">3. &#x5BF9;&#x8C61;&#x4E0E;&#x7C7B;</a></li>
+<li><a href="#4-%E7%BB%A7%E6%89%BF">4. &#x7EE7;&#x627F;</a>
+<ul>
+<li><a href="#41-%E7%B1%BB%E8%B6%85%E7%B1%BBsuperclass%E5%AD%90%E7%B1%BBsubclass">4.1. &#x7C7B;&#x3001;&#x8D85;&#x7C7B;&#xFF08;superclass&#xFF09;&#x3001;&#x5B50;&#x7C7B;&#xFF08;subclass&#xFF09;</a></li>
+<li><a href="#42-object%E6%89%80%E6%9C%89%E7%B1%BB%E7%9A%84%E8%B6%85%E7%B1%BB">4.2. Object&#xFF1A;&#x6240;&#x6709;&#x7C7B;&#x7684;&#x8D85;&#x7C7B;</a></li>
+<li><a href="#43-%E6%B3%9B%E5%9E%8B%E6%95%B0%E7%BB%84%E5%88%97%E8%A1%A8">4.3. &#x6CDB;&#x578B;&#x6570;&#x7EC4;&#x5217;&#x8868;</a></li>
+<li><a href="#44-%E5%AF%B9%E8%B1%A1%E5%8C%85%E8%A3%85%E5%99%A8%E4%B8%8E%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1">4.4. &#x5BF9;&#x8C61;&#x5305;&#x88C5;&#x5668;&#x4E0E;&#x81EA;&#x52A8;&#x88C5;&#x7BB1;</a></li>
+<li><a href="#45-%E5%8F%82%E6%95%B0%E4%B8%AA%E6%95%B0%E5%8F%AF%E5%8F%98%E7%9A%84%E6%96%B9%E6%B3%95">4.5. &#x53C2;&#x6570;&#x4E2A;&#x6570;&#x53EF;&#x53D8;&#x7684;&#x65B9;&#x6CD5;</a></li>
+<li><a href="#46-%E6%8A%BD%E8%B1%A1%E7%B1%BB">4.6. &#x62BD;&#x8C61;&#x7C7B;</a></li>
+<li><a href="#47-%E6%9E%9A%E4%B8%BE%E7%B1%BB">4.7. &#x679A;&#x4E3E;&#x7C7B;</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="main-artical">
+<div class="foreword">
+<blockquote>
+<p><b>&#x4E00;&#x4E9B;&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#xFF1A;</b></p>
+<ul>
+<li><b class="definition">&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#xFF08;programming language&#xFF09;</b>&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x673A;&#x5668;&#x548C;&#x4EBA;&#x90FD;&#x80FD;&#x8BC6;&#x522B;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x5206;&#x4E3A;<span class="definition">&#x673A;&#x5668;&#x8BED;&#x8A00;</span>&#x3001;<span class="definition">&#x6C47;&#x7F16;&#x8BED;&#x8A00;</span>&#x548C;<span class="definition">&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;</span>&#x3002;</li>
+<li><b class="definition">&#x673A;&#x5668;&#x8BED;&#x8A00;&#xFF08;machine language&#xFF09;</b>&#x7528;&#x4E8C;&#x8FDB;&#x5236;&#x4EE3;&#x7801;&#x8868;&#x793A;&#xFF0C;&#x662F;&#x673A;&#x5668;&#x80FD;&#x76F4;&#x63A5;&#x8BC6;&#x522B;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x4E0D;&#x540C;&#x578B;&#x53F7;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x5176;&#x673A;&#x5668;&#x8BED;&#x8A00;&#x662F;&#x4E0D;&#x76F8;&#x901A;&#x7684;&#xFF0C;&#x6309;&#x7740;&#x4E00;&#x79CD;&#x8BA1;&#x7B97;&#x673A;&#x7684;&#x673A;&#x5668;&#x6307;&#x4EE4;&#x7F16;&#x5236;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x4E0D;&#x80FD;&#x5728;&#x53E6;&#x4E00;&#x79CD;&#x8BA1;&#x7B97;&#x673A;&#x4E0A;&#x6267;&#x884C;&#x3002;</li>
+<li><b class="definition">&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#xFF08;Assembly Language&#xFF09;</b>&#x4E5F;&#x79F0;&#x4E3A;<b class="definition">&#x7B26;&#x53F7;&#x8BED;&#x8A00;</b>&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x7528;&#x4E8E;&#x53EF;&#x7F16;&#x7A0B;&#x5668;&#x4EF6;&#xFF08;&#x5982;&#x5FAE;&#x5904;&#x7406;&#x5668;&#x3001;&#x7535;&#x5B50;&#x8BA1;&#x7B97;&#x673A;&#xFF09;&#x7684;&#x4F4E;&#x7EA7;&#x8BED;&#x8A00;&#xFF0C;&#x7528;&#x7F29;&#x5199;&#x5355;&#x8BCD;&#x6765;&#x4EE3;&#x66FF;&#x7279;&#x5B9A;&#x7684;&#x6307;&#x4EE4;&#xFF0C;&#x901A;&#x8FC7;<span class="definition">&#x6C47;&#x7F16;&#x8FC7;&#x7A0B;</span>&#x8F6C;&#x6362;&#x6210;&#x673A;&#x5668;&#x6307;&#x4EE4;&#x3002;&#x7279;&#x5B9A;&#x7684;&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#x548C;&#x7279;&#x5B9A;&#x7684;&#x673A;&#x5668;&#x8BED;&#x8A00;&#x6307;&#x4EE4;&#x96C6;&#x662F;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x7684;&#xFF0C;&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x4E4B;&#x95F4;&#x4E0D;&#x53EF;&#x76F4;&#x63A5;&#x79FB;&#x690D;&#x3002;</li>
+<li><b class="definition">&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;&#xFF08;High-level programming language&#xFF09;</b>&#x5982; C&#x3001;Java&#x3001;python&#xFF0C;&#x5177;&#x6709;&#x62BD;&#x8C61;&#x529F;&#x80FD;&#xFF0C;&#x662F;&#x4EBA;&#x7C7B;&#x5BB9;&#x6613;&#x8BC6;&#x522B;&#x7684;&#x8BED;&#x8A00;&#x3002;&#x901A;&#x8FC7;<span class="definition">&#x7F16;&#x8BD1;&#x5668;</span>&#x7FFB;&#x8BD1;&#x6210;&#x673A;&#x5668;&#x8BED;&#x8A00;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x53D7;&#x9650;&#x4E8E; CPU &#x7C7B;&#x578B;&#xFF08;Intel &#x6216; ARM&#xFF09;&#x6216;&#x6307;&#x4EE4;&#x96C6;&#x3002;</li>
+<li><b class="definition">&#x7F16;&#x8BD1;&#x5668;&#xFF08;Compiler&#xFF09;</b>&#x5C31;&#x662F;&#x5C06;&#x4E00;&#x79CD;&#x8BED;&#x8A00;&#xFF08;&#x901A;&#x5E38;&#x4E3A;&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;&#xFF09;&#x7FFB;&#x8BD1;&#x4E3A;&#x53E6;&#x4E00;&#x79CD;&#x8BED;&#x8A00;&#xFF08;&#x901A;&#x5E38;&#x4E3A;&#x4F4E;&#x7EA7;&#x8BED;&#x8A00;&#xFF09;&#x7684;&#x7A0B;&#x5E8F;&#x3002;&#x4F7F;&#x7528;&#x5408;&#x9002;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x4E00;&#x79CD;&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;&#x7A0B;&#x5E8F;&#x8F6C;&#x5316;&#x4E3A;&#x4F9B;&#x4E0D;&#x540C; CPU &#x4F7F;&#x7528;&#x7684;&#x673A;&#x5668;&#x8BED;&#x8A00;&#x7A0B;&#x5E8F;&#x3002;</li>
+<li><b class="definition">JDK&#xFF08;Java Development ToolKit&#xFF09;</b>&#x5373;Java&#x7684; <span class="definition">SDK&#xFF08;Software Development Kit&#xFF0C;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x5305;&#xFF09;</span>&#xFF0C;&#x662F;&#x6574;&#x4E2A; Java &#x7684;&#x6838;&#x5FC3;&#xFF0C;&#x5305;&#x62EC;&#x4E86; <span class="definition">JRE</span>&#x3001;&#x7F16;&#x8BD1; java &#x6E90;&#x7801;&#x7684;<span class="definition">&#x7F16;&#x8BD1;&#x5668; javac</span>&#xFF0C;&#x8FD8;&#x5305;&#x542B;&#x4E86;&#x5F88;&#x591A; java &#x7A0B;&#x5E8F;&#x8C03;&#x8BD5;&#x548C;&#x5206;&#x6790;&#x7684;&#x5DE5;&#x5177;&#xFF08;&#x5982;jconsole&#xFF0C;jvisualvm &#x7B49;&#x5DE5;&#x5177;&#x8F6F;&#x4EF6;&#xFF09;&#x4EE5;&#x53CA; java &#x7A0B;&#x5E8F;&#x7F16;&#x5199;&#x6240;&#x9700;&#x7684;&#x6587;&#x6863;&#x548C; demo &#x4F8B;&#x5B50;&#x7A0B;&#x5E8F;&#x3002;&#x7531; Sun &#x516C;&#x53F8;&#x53D1;&#x660E;&#xFF0C;&#x540E; Sun &#x5728; 09 &#x5E74;&#x88AB;&#x7532;&#x9AA8;&#x6587;&#xFF08;Oracle&#xFF09;&#x516C;&#x53F8;&#x6536;&#x8D2D;&#xFF0C;&#x53D8;&#x66F4;&#x4E3A; <span class="definition">OracleJDK</span>&#x3002;&#x5728;&#x88AB;&#x6536;&#x8D2D;&#x524D;&#xFF0C;Sun &#x516C;&#x53F8;&#x5C06; JDK &#x5F00;&#x6E90;&#xFF0C;&#x51FA;&#x73B0;&#x4E86; <span class="definition">OpenJDK</span>&#x3002;&#x6B64;&#x540E;&#xFF0C;&#x6BCF;&#x6B21; Oracle &#x516C;&#x53F8;&#x53D1;&#x5E03;&#x65B0;&#x7248;&#x7684; JDK &#x65F6;&#x4F1A;&#x53D1;&#x5E03;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#xFF1A;&#x4E00;&#x4E2A;&#x662F;&#x52A0;&#x4E86;&#x4E00;&#x4E9B;&#x81EA;&#x5DF1; Oracle &#x516C;&#x53F8;&#x7684;&#x5546;&#x4E1A;&#x6280;&#x672F;&#x7684; JDK (&#x5C31;&#x7C7B;&#x4F3C;&#x5728;&#x4E00;&#x4E2A;&#x7EAF;&#x51C0;&#x7684;&#x8F6F;&#x4EF6;&#x4E0A;&#x52A0;&#x4E86;&#x4E00;&#x4E9B;&#x81EA;&#x5DF1;&#x7684;&#x63D2;&#x4EF6;&#x7B49;) &#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x662F; OpenJDK&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x822C;&#x6CA1;&#x6709;&#x52A0;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x63D2;&#x4EF6;&#x7684;&#x7EAF;&#x51C0;&#x7248;&#x7684; JDK&#xFF09;&#x3002;</li>
+<li><b class="definition">JRE&#xFF08;Java Runtime Enviroment&#xFF09;</b>&#x662F;&#x8FD0;&#x884C; Java &#x7A0B;&#x5E8F;&#x6240;&#x5FC5;&#x987B;&#x73AF;&#x5883;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5305;&#x542B; <span class="definition">JVM&#xFF08;Java Virtual Machine&#xFF0C;Java &#x865A;&#x62DF;&#x673A;&#xFF09;</span>&#x6807;&#x51C6;&#x5B9E;&#x73B0;&#x53CA; Java &#x6838;&#x5FC3;&#x7C7B;&#x5E93;&#xFF0C;&#x4E0D;&#x5305;&#x542B;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#xFF08;&#x7F16;&#x8BD1;&#x5668;&#x3001;&#x8C03;&#x8BD5;&#x5668;&#x7B49;&#xFF09;&#x3002;</li>
+</ul>
+</blockquote>
+</div>
+<h2>1. Java&#x73AF;&#x5883;&#x4ECB;&#x7ECD;</h2>
+<p><b class="definition">Java&#x7F16;&#x7A0B;&#x73AF;&#x5883;</b>&#x7531;<b class="definition">Java&#x8BED;&#x8A00;</b>&#x548C;<b class="definition">&#x8FD0;&#x884C;&#x65F6;</b>&#x7EC4;&#x6210;&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#x901A;&#x5E38;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;<b class="definition">Java&#x865A;&#x62DF;&#x673A;</b>&#xFF08;Java Virtual Machine&#xFF0C;<b class="definition">JVM</b>&#xFF09;&#x3002;</p>
+<h3>1.1. Java&#x8BED;&#x8A00;</h3>
+<p><b class="definition">Java&#x8BED;&#x8A00;</b>&#x662F;&#x4E00;&#x79CD;&#x57FA;&#x4E8E;&#x7C7B;&#x3001;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x53EF;&#x8BFB;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x3002;</p>
+<ul>
+<li>Java&#x8BED;&#x8A00;&#x7531;<b class="definition">Java&#x8BED;&#x8A00;&#x89C4;&#x8303;&#xFF08;JLS&#xFF09;</b>&#x63A7;&#x5236;&#xFF0C;JLS&#x89C4;&#x5B9A;&#x4E86;&#x7B26;&#x5408;&#x89C4;&#x8303;&#x7684;&#x5B9E;&#x73B0;&#x5FC5;&#x987B;&#x9075;&#x5B88;&#x7684;&#x6807;&#x51C6;&#x3002;</li>
+<li>Java&#x53E5;&#x6CD5;&#x90E8;&#x5206;&#x501F;&#x9274;&#x4E86;C&#x548C;C++&#x7B49;&#x8BED;&#x8A00;&#xFF0C;&#x6E90;&#x7801;&#x98CE;&#x683C;&#x5F88;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#x7531;&#x4E8E;Java&#x7684;&#x8BED;&#x8A00;&#x7279;&#x6027;&#x548C;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x5B58;&#x5728;&#xFF0C;Java&#x66F4;&#x50CF;&#x52A8;&#x6001;&#x8BED;&#x8A00;&#xFF08;&#x5982;Smalltalk&#xFF09;&#x3002;</li>
+</ul>
+<h3>1.2. JVM</h3>
+<p><b class="definition">JVM</b>&#x4E3A;Java&#x7A0B;&#x5E8F;&#x7684;&#x8FD0;&#x884C;&#x63D0;&#x4F9B;&#x5FC5;&#x987B;&#x7684;&#x73AF;&#x5883;&#xFF0C;&#x5176;&#x672C;&#x8D28;&#x662F;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x3002;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x67D0;&#x4E2A;&#x786C;&#x4EF6;&#x6216;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5E73;&#x53F0;&#x7F3A;&#x5C11;&#x5BF9;&#x5E94;&#x7684;JVM&#xFF0C;&#x5C06;&#x4E0D;&#x80FD;&#x8FD0;&#x884C;Java&#x7A0B;&#x5E8F;&#x3002;</li>
+<li>Java&#x7A0B;&#x5E8F;&#x5E38;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x542F;&#x52A8;&#xFF08;<code>java &lt;arguments&gt; &lt;program name&gt;</code>&#xFF09;&#xFF0C;&#x8BE5;&#x547D;&#x4EE4;&#x5C06;&#x5728;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E2D;&#x542F;&#x52A8;JVM&#xFF0C;&#x63D0;&#x4F9B;Java&#x8FD0;&#x884C;&#x65F6;&#x73AF;&#x5883;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x521A;&#x542F;&#x52A8;&#x7684;&#x7A7A;&#x7684;&#x865A;&#x62DF;&#x673A;&#x4E2D;&#x6309;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#x6307;&#x5B9A;&#x7684;&#x7A0B;&#x5E8F;&#x3002;</li>
+<li>JVM &#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x4F18;&#x70B9;&#xFF1A;
+<ol>
+<li>&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#xFF0C;&#x8BA9;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x5728;&#x5176;&#x4E2D;&#x8FD0;&#x884C;&#xFF1B;</li>
+<li>&#x4E0E; C/C++ &#x76F8;&#x6BD4;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x5B89;&#x5168;&#x3001;&#x53EF;&#x9760;&#x7684;&#x6267;&#x884C;&#x73AF;&#x5883;&#xFF1B;</li>
+<li>&#x4E3A;&#x5F00;&#x53D1;&#x8005;&#x7BA1;&#x7406;&#x5185;&#x5B58;</li>
+<li>&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#x6267;&#x884C;&#x73AF;&#x5883;&#xFF0C;<q>&#x4E00;&#x6B21;&#x7F16;&#x8BD1;&#xFF0C;&#x5230;&#x5904;&#x8FD0;&#x884C;</q><span class="tip"><a href="https://zhuanlan.zhihu.com/p/364545050"> link</a></span>&#x3002;</li>
+<li>&#x6536;&#x96C6;&#x8FD0;&#x884C;&#x65F6;&#x4FE1;&#x606F;&#xFF0C;&#x76D1;&#x63A7;&#x548C;&#x4F18;&#x5316;&#x5176;&#x6258;&#x7BA1;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>JVM &#x8FD8;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x8FD0;&#x884C;&#x65F6;&#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x6267;&#x884C; <span class="definition">JIT &#x7F16;&#x8BD1;&#xFF08;just-in-time compilation&#xFF09;</span>&#xFF1A;&#x5F53;JVM&#x53D1;&#x73B0;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;&#x6216;&#x4EE3;&#x7801;&#x5757;&#x8FD0;&#x884C;&#x7279;&#x522B;&#x9891;&#x7E41;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x4F1A;&#x8BA4;&#x4E3A;&#x8FD9;&#x662F;<span class="definition">&#x201C;&#x70ED;&#x70B9;&#x4EE3;&#x7801;&#x201D;&#xFF08;Hot Spot Code)</span>&#x3002;&#x7136;&#x540E;JIT&#x4F1A;&#x8DF3;&#x8FC7; JVM &#x89E3;&#x91CA;&#x5668;&#xFF0C;&#x76F4;&#x63A5;&#x5C06;&#x8FD9;&#x90E8;&#x5206;&#x7F16;&#x8BD1;&#x6210;&#x672C;&#x5730;&#x673A;&#x5668;&#x76F8;&#x5173;&#x7684;&#x673A;&#x5668;&#x7801;&#x3002;</p>
+</blockquote>
+<h3>1.3. Java &#x7A0B;&#x5E8F;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</h3>
+<p>Java &#x6E90;&#x7801; --(javac)--&gt; &#x7C7B;&#x6587;&#x4EF6; --(&#x7C7B;&#x52A0;&#x8F7D;)--&gt; &#x65B0;&#x7C7B;&#x578B; --(JVM&#x89E3;&#x91CA;&#x5668;)--&gt; &#x8FD0;&#x884C;</p>
+<p>Java 9 &#x5F15;&#x5165;&#x4E86; JShell&#xFF0C;&#x63D0;&#x4F9B;<b span class="definition">&#x201C;&#x8BFB;&#x53D6; - &#x8BC4;&#x4F30; - &#x6253;&#x5370;&#x5FAA;&#x73AF;&#x201D;&#xFF08;Read-Evaluate-Print Loop, REPL&#xFF09;</b>&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7EC8;&#x7AEF;&#x7A97;&#x53E3;&#xFF08;cmd&#x3001;powershell &#x6216; Git&#xFF09;&#x952E;&#x5165; <code>JShell</code> &#x6765;&#x542F;&#x52A8;&#x3002;&#x5176; Tab &#x8865;&#x5168;&#x529F;&#x80FD;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5730;&#x5B8C;&#x6210;&#x5C0F;&#x7247;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x8F93;&#x5165;&#x548C;&#x8FD0;&#x884C;&#x3002;</p>
+<h2>2. Java &#x7684;&#x57FA;&#x672C;&#x7A0B;&#x5E8F;&#x7ED3;&#x6784;</h2>
+<pre data-role="codeBlock" data-info="java class=&quot;line-numbers&quot;" class="language-java line-numbers"><span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">FirstSimple</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-static">static</span> <span class="token keyword keyword-void">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;This is a simple.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></pre><p><code>public</code> &#x79F0;&#x4E3A;<b class="definition">&#x8BBF;&#x95EE;&#x4FEE;&#x9970;&#x7B26;&#xFF08;access modifier&#xFF09;</b>&#xFF0C;&#x5173;&#x952E;&#x5B57;<code>class</code> &#x662F;<b class="definition">&#x7C7B;</b>&#xFF0C;&#x662F;&#x6240;&#x6709; Java &#x5E94;&#x7528;&#x7684;&#x6784;&#x5EFA;&#x6A21;&#x5757;&#x3002;</p>
+<h2>3. &#x5BF9;&#x8C61;&#x4E0E;&#x7C7B;</h2>
+<h2>4. &#x7EE7;&#x627F;</h2>
+<pre data-role="codeBlock" data-info="java class=&quot;line-numbers&quot;" class="language-java line-numbers"><span class="token comment">// &#x8D85;&#x7C7B; Employee</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Employee</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-private">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+  <span class="token keyword keyword-private">private</span> <span class="token keyword keyword-double">double</span> salary<span class="token punctuation">;</span>
+  <span class="token keyword keyword-private">private</span> <span class="token class-name">LocalDate</span> hireDay<span class="token punctuation">;</span>
 
-          <div class="main-artical">
-            <blockquote>
-              <p><b>一些基础知识：</b></p>
-              <ul>
-                <li><b class="definition">编程语言（programming language）</b>可以理解为机器和人都能识别的语言，分为<span class=definition>机器语言</span>、<span class=definition>汇编语言</span>和<span class=definition>高级语言</span>。 </li>
-                <li><b class="definition">机器语言（machine language）</b>用二进制代码表示，是机器能直接识别的语言，不同型号的计算机其机器语言是不相通的，按着一种计算机的机器指令编制的程序，不能在另一种计算机上执行。</li>
-                <li><b class="definition">汇编语言（Assembly Language）</b>也称为<b class=definition>符号语言</b>，是一种用于可编程器件（如微处理器、电子计算机）的低级语言，用缩写单词来代替特定的指令，通过<span class=definition>汇编过程</span>转换成机器指令。特定的汇编语言和特定的机器语言指令集是一一对应的，不同平台之间不可直接移植。</li>
-                <li><b class="definition">高级语言（High-level programming language）</b>如 C、Java、python，具有抽象功能，是人类容易识别的语言。通过<span class=definition>编译器</span>翻译成机器语言，因此不受限于 CPU 类型（Intel 或 ARM）或指令集。</li>
-                <li><b class="definition">编译器（Compiler）</b>就是将一种语言（通常为高级语言）翻译为另一种语言（通常为低级语言）的程序。使用合适的编译器，可以把一种高级语言程序转化为供不同 CPU 使用的机器语言程序。</li>
-                <li><b class="definition">JDK（Java Development ToolKit）</b>即Java的 <span class=definition>SDK（Software Development Kit，软件开发工具包）</span>，是整个 Java 的核心，包括了 <span class=definition>JRE</span>、编译 java 源码的<span class=definition>编译器 javac</span>，还包含了很多 java 程序调试和分析的工具（如jconsole，jvisualvm 等工具软件）以及 java 程序编写所需的文档和 demo 例子程序。由 Sun 公司发明，后 Sun 在 09 年被甲骨文（Oracle）公司收购，变更为 <span class=definition>OracleJDK</span>。在被收购前，Sun 公司将 JDK 开源，出现了 <span class=definition>OpenJDK</span>。此后，每次 Oracle 公司发布新版的 JDK 时会发布两个版本：一个是加了一些自己 Oracle 公司的商业技术的 JDK (就类似在一个纯净的软件上加了一些自己的插件等) ，另一个是 OpenJDK（也就是一般没有加任何其他插件的纯净版的 JDK）。</li>
-                <li><b class="definition">JRE（Java Runtime Enviroment）</b>是运行 Java 程序所必须环境的集合，包含 <span class=definition>JVM（Java Virtual Machine，Java 虚拟机）</span>标准实现及 Java 核心类库，不包含开发工具（编译器、调试器等）。</li>
-              </ul>
-            </blockquote>
-            <h2>1. Java 环境介绍</h2>
-            <ol>
-              <li><b class="definition">Java&#x7F16;&#x7A0B;&#x73AF;&#x5883;</b>&#x7531;<b class="definition">Java&#x8BED;&#x8A00;</b>&#x548C;<b class="definition">&#x8FD0;&#x884C;&#x65F6;</b>&#x7EC4;&#x6210;&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#x901A;&#x5E38;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;<b class="definition">Java&#x865A;&#x62DF;&#x673A;</b>&#xFF08;Java Virtual Machine&#xFF0C;<b class="definition">JVM</b>&#xFF09;&#x3002;</li>
-              <li><b class="definition">Java&#x8BED;&#x8A00;</b>&#x662F;&#x4E00;&#x79CD;&#x57FA;&#x4E8E;&#x7C7B;&#x3001;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x53EF;&#x8BFB;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x3002;
-                <ol>
-                  <li>Java&#x8BED;&#x8A00;&#x7531;<b class="definition">Java&#x8BED;&#x8A00;&#x89C4;&#x8303;&#xFF08;JLS&#xFF09;</b>&#x63A7;&#x5236;&#xFF0C;JLS&#x89C4;&#x5B9A;&#x4E86;&#x7B26;&#x5408;&#x89C4;&#x8303;&#x7684;&#x5B9E;&#x73B0;&#x5FC5;&#x987B;&#x9075;&#x5B88;&#x7684;&#x6807;&#x51C6;&#x3002;</li>
-                  <li>Java&#x53E5;&#x6CD5;&#x90E8;&#x5206;&#x501F;&#x9274;&#x4E86;C&#x548C;C++&#x7B49;&#x8BED;&#x8A00;&#xFF0C;&#x6E90;&#x7801;&#x98CE;&#x683C;&#x5F88;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#x7531;&#x4E8E;Java&#x7684;&#x8BED;&#x8A00;&#x7279;&#x6027;&#x548C;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x5B58;&#x5728;&#xFF0C;Java&#x66F4;&#x50CF;&#x52A8;&#x6001;&#x8BED;&#x8A00;&#xFF08;&#x5982;Smalltalk&#xFF09;&#x3002;</li>
-                </ol>
-              </li>
-              <li><b class="definition">JVM</b>&#x4E3A;Java&#x7A0B;&#x5E8F;&#x7684;&#x8FD0;&#x884C;&#x63D0;&#x4F9B;&#x5FC5;&#x987B;&#x7684;&#x73AF;&#x5883;&#xFF0C;&#x5176;&#x672C;&#x8D28;&#x662F;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x3002;
-                <ol>
-                  <li>&#x5982;&#x679C;&#x67D0;&#x4E2A;&#x786C;&#x4EF6;&#x6216;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5E73;&#x53F0;&#x7F3A;&#x5C11;&#x5BF9;&#x5E94;&#x7684;JVM&#xFF0C;&#x5C06;&#x4E0D;&#x80FD;&#x8FD0;&#x884C;Java&#x7A0B;&#x5E8F;&#x3002;</li>
-                  <li>Java&#x7A0B;&#x5E8F;&#x5E38;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x542F;&#x52A8;&#xFF08;<code>java &lt;arguments&gt; &lt;program name&gt;</code>&#xFF09;&#xFF0C;&#x8BE5;&#x547D;&#x4EE4;&#x5C06;&#x5728;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E2D;&#x542F;&#x52A8;JVM&#xFF0C;&#x63D0;&#x4F9B;Java&#x8FD0;&#x884C;&#x65F6;&#x73AF;&#x5883;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x521A;&#x542F;&#x52A8;&#x7684;&#x7A7A;&#x7684;&#x865A;&#x62DF;&#x673A;&#x4E2D;&#x6309;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#x6307;&#x5B9A;&#x7684;&#x7A0B;&#x5E8F;&#x3002;</li>
-                </ol>
-              </li>
-            </ol>
-          </div>
-          
-        </div>
+  <span class="token keyword keyword-public">public</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token keyword keyword-double">double</span> salary<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> year<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> month<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> day<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>salary <span class="token operator">=</span> salary<span class="token punctuation">;</span>
+    hireDay <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>year<span class="token punctuation">,</span> month<span class="token punctuation">,</span> day<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">raiseSalary</span><span class="token punctuation">(</span><span class="token keyword keyword-double">double</span> byPercent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-double">double</span> raise <span class="token operator">=</span> salary <span class="token operator">*</span> byPercent <span class="token operator">/</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    salary <span class="token operator">+=</span> raise<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// GET-methods</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><pre data-role="codeBlock" data-info="java class=&quot;line-numbers&quot;" class="language-java line-numbers"><span class="token comment">// &#x5B50;&#x7C7B;</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Manager</span> <span class="token keyword keyword-extends">extends</span> <span class="token class-name">Employee</span> <span class="token punctuation">{</span>
+  <span class="token comment">// &#x589E;&#x52A0;&#x5B57;&#x6BB5;</span>
+  <span class="token keyword keyword-private">private</span> <span class="token keyword keyword-double">double</span> bonus<span class="token punctuation">;</span>
+
+  <span class="token comment">// &#x5B50;&#x7C7B;&#x6784;&#x9020;&#x5668;</span>
+  <span class="token keyword keyword-public">public</span> <span class="token class-name">Manager</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token keyword keyword-double">double</span> salary<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> year<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> month<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> day<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-super">super</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> salary<span class="token punctuation">,</span> year<span class="token punctuation">,</span> month<span class="token punctuation">,</span> day<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    bonus <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// &#x589E;&#x52A0;&#x65B9;&#x6CD5;</span>
+  <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">setBonus</span><span class="token punctuation">(</span><span class="token keyword keyword-double">double</span> bonus<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>bonus <span class="token operator">=</span> bonus<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// &#x8986;&#x76D6;&#x8D85;&#x7C7B;</span>
+  <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-double">double</span> <span class="token function">getSalary</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-double">double</span> baseSalary <span class="token operator">=</span> <span class="token keyword keyword-super">super</span><span class="token punctuation">.</span><span class="token function">getSalary</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-return">return</span> baseSalary <span class="token operator">+</span> bonus<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// other GET-methods</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3>4.1. &#x7C7B;&#x3001;&#x8D85;&#x7C7B;&#xFF08;superclass&#xFF09;&#x3001;&#x5B50;&#x7C7B;&#xFF08;subclass&#xFF09;</h3>
+<h4>4.1.1. &#x5B50;&#x7C7B;&#x6784;&#x9020;</h4>
+<p>&#x4F7F;&#x7528;&#x5173;&#x952E;&#x5B57; <code>extends</code> &#x8868;&#x793A;&#x7EE7;&#x627F;&#x3002;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x7C7B; <code>Employee</code> &#x79F0;&#x4E3A;<b class="definition">&#x8D85;&#x7C7B;&#xFF08;superclass&#xFF09;</b>&#x3001;<b class="definition">&#x57FA;&#x7C7B;&#xFF08;base class&#xFF09;</b>&#x3001;<b class="definition">&#x7236;&#x7C7B;&#xFF08;parent class&#xFF09;</b>&#xFF1B;&#x65B0;&#x7C7B; <code>Mnager</code> &#x79F0;&#x4E3A;<b class="definition">&#x5B50;&#x7C7B;&#xFF08;subclass/child class&#xFF09;</b>&#x6216;<b class="definition">&#x6D3E;&#x751F;&#x7C7B;&#xFF08;derived class&#xFF09;</b>&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x8D85;&#x7C7B; <code>Employee</code> &#x672C;&#x8EAB;&#x5177;&#x6709;&#x4E09;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1A;<code>name</code>&#x3001;<code>salary</code>&#x3001;<code>hireDay</code>&#xFF0C;&#x8FD9;&#x4E9B;&#x5B57;&#x6BB5;&#x4E5F;&#x4F1A;&#x88AB;&#x5B50;&#x7C7B; <code>Manager</code> &#x7EE7;&#x627F;&#x3002;&#x6B64;&#x5916;&#xFF0C;<code>Manager</code> &#x8FD8;&#x5177;&#x6709; <code>Employee</code> &#x6CA1;&#x6709;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x5373; <code>bonus</code>&#x3002;</p>
+<h4>4.1.2. &#x8986;&#x76D6;&#xFF08;override&#xFF09;</h4>
+<p>&#x4F7F;&#x7528;&#x5173;&#x952E;&#x5B57; <code>super</code> &#x8C03;&#x7528;&#x8D85;&#x7C7B;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4ECE;&#x800C;<b class="definition">&#x8986;&#x76D6;&#xFF08;override&#xFF09;</b>&#x8D85;&#x7C7B;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5F62;&#x6210;&#x65B0;&#x65B9;&#x6CD5;&#x3002;</p>
+<h4>4.1.3. &#x5B50;&#x7C7B;&#x6784;&#x9020;&#x5668;</h4>
+<p>&#x5B50;&#x7C7B;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x8D85;&#x7C7B;&#x4E2D;&#x7684;&#x79C1;&#x6709;&#x5B57;&#x6BB5;&#xFF0C;&#x56E0;&#x6B64;&#x521D;&#x59CB;&#x5316;&#x5B50;&#x7C7B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x901A;&#x8FC7;&#x5173;&#x952E;&#x5B57; <code>super()</code> &#x6765;<span>&#x8C03;&#x7528;&#x8D85;&#x7C7B; <code>Employee</code> &#x4E2D;&#x5E26;&#x6709; <code>name</code>&#x3001;<code>salary</code>&#x3001;<code>year</code>&#x3001;<code>month</code>&#x3001;<code>day</code> &#x53C2;&#x6570;&#x7684;&#x6784;&#x9020;&#x5668;</span>&#x3002;</p>
+<blockquote>
+<ul>
+<li><code>super</code>&#x8C03;&#x7528;&#x6784;&#x9020;&#x5668;&#x7684;&#x8BED;&#x53E5;&#x5FC5;&#x987B;&#x662F;&#x5B50;&#x7C7B;&#x6784;&#x9020;&#x5668;&#x7684;&#x7B2C;&#x4E00;&#x6761;&#x8BED;&#x53E5;</li>
+<li>&#x5982;&#x679C;&#x5B50;&#x7C7B;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x8C03;&#x7528;&#x8D85;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x5668;&#xFF0C;&#x90A3;&#x4E48;&#x8D85;&#x7C7B;&#x5FC5;&#x987B;&#x6709;&#x4E00;&#x4E2A;&#x65E0;&#x53C2;&#x6570;&#x6784;&#x9020;&#x5668;&#x3002;&#x8FD9;&#x4E2A;&#x6784;&#x9020;&#x5668;&#x8981;&#x5728;&#x5B50;&#x7C7B;&#x6784;&#x9020;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x3002;</li>
+</ul>
+</blockquote>
+<h4>4.1.4. &#x963B;&#x6B62;&#x7EE7;&#x627F;</h4>
+<p>&#x4F7F;&#x7528;&#x4FEE;&#x9970;&#x7B26; <code>final</code> &#x8868;&#x793A;&#x4E0D;&#x5141;&#x8BB8;&#x88AB;&#x6269;&#x5C55;&#x3002;&#x88AB;&#x4FEE;&#x9970;&#x7684;&#x7C7B;&#x65E0;&#x6CD5;&#x6D3E;&#x751F;&#x5B50;&#x7C7B;&#xFF0C;&#x88AB;&#x4FEE;&#x9970;&#x7684;&#x65B9;&#x6CD5;&#x65E0;&#x6CD5;&#x88AB;&#x4EFB;&#x4F55;&#x5B50;&#x7C7B;&#x8986;&#x76D6;&#x3002;&#x5F53;&#x4E00;&#x4E2A;&#x7C7B;&#x58F0;&#x660E;&#x4E3A; <code>final</code> &#x65F6;&#xFF0C;&#x53EA;&#x6709;&#x5176;&#x65B9;&#x6CD5;&#x81EA;&#x52A8;&#x6210;&#x4E3A; <code>final</code>&#xFF0C;&#x800C;&#x5B57;&#x6BB5;&#x4E0D;&#x4F1A;&#x3002;</p>
+<h4>4.1.5. &#x5F3A;&#x5236;&#x7C7B;&#x578B;&#x8F6C;&#x6362;</h4>
+<p>&#x53EA;&#x80FD;&#x5728;&#x7EE7;&#x627F;&#x5C42;&#x6B21;&#x5185;&#x8FDB;&#x884C;&#x5F3A;&#x5236;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x3002;&#x5C06;&#x8D85;&#x7C7B;&#x8F6C;&#x6362;&#x6210;&#x5B50;&#x7C7B;&#x4E4B;&#x524D;&#xFF0C;&#x8981;&#x4F7F;&#x7528; <code>instanceof</code> &#x8FDB;&#x884C;&#x68C0;&#x67E5;&#x3002;</p>
+<pre data-role="codeBlock" data-info="java class=&quot;line-numbers&quot;" class="language-java line-numbers"><span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>staff<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token keyword keyword-instanceof">instanceof</span> <span class="token class-name">Manager</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  boss <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Manager</span><span class="token punctuation">)</span> staff<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  boss<span class="token punctuation">.</span><span class="token function">setBonus</span><span class="token punctuation">(</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// java 16</span>
+<span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>staff<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token keyword keyword-instanceof">instanceof</span> <span class="token class-name">Manager</span> boss<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  boss<span class="token punctuation">.</span><span class="token function">setBonus</span><span class="token punctuation">(</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>&#x6B64;&#x5904;&#x7684; <code>staff[i]</code> &#x662F;&#x521D;&#x59CB;&#x5B9A;&#x4E49;&#x4E3A; <code>Employee[3]</code>&#x3001;&#x6DF7;&#x5408;&#x6709; <code>Employee</code> &#x548C; <code>Manager</code> &#x7684;&#x6570;&#x7EC4;&#x3002;</p>
+<h4>4.1.6. &#x53D7;&#x4FDD;&#x62A4;&#x8BBF;&#x95EE;&#xFF08;protected&#xFF09;</h4>
+<p>&#x4F7F;&#x7528;&#x4FEE;&#x9970;&#x7B26; <code>protected</code> &#x58F0;&#x660E;&#x7684;&#x65B9;&#x6CD5;&#x6216;&#x5B57;&#x6BB5;&#x53EF;&#x4EE5;&#x88AB;&#x5B50;&#x7C7B;&#x8BBF;&#x95EE;&#x3002;&#x4F46;&#x4EC5;&#x9650;&#x4E8E;&#x540C;&#x4E00;&#x4E2A;&#x5305;&#x4E2D;&#x7684;&#x5B50;&#x7C7B;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x4E00;&#x822C;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x540E;&#x7EED;&#x4FEE;&#x6539;&#x5E26;&#x6765;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x4E0D;&#x63D0;&#x5021;&#x4F7F;&#x7528;&#x53D7;&#x4FDD;&#x62A4;&#x5B57;&#x6BB5;&#x3002;&#x76F8;&#x53CD;&#x7684;&#xFF0C;&#x53D7;&#x4FDD;&#x62A4;&#x65B9;&#x6CD5;&#x66F4;&#x6709;&#x610F;&#x4E49;&#x3002;</li>
+</ul>
+</blockquote>
+<h3>4.2. Object&#xFF1A;&#x6240;&#x6709;&#x7C7B;&#x7684;&#x8D85;&#x7C7B;</h3>
+<p><code>Object</code> &#x7C7B;&#x662F;&#x6240;&#x6709;&#x7C7B;&#x7684;&#x8D85;&#x7C7B;&#x3002;&#x5728; Java &#x4E2D;&#xFF0C;&#x53EA;&#x6709;<span class="definition">&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF08;primitive type&#xFF09;</span>&#x4E0D;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x6570;&#x503C;&#x3001;&#x5B57;&#x7B26;&#x548C;&#x5E03;&#x5C14;&#x7C7B;&#x578B;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x6240;&#x6709;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#x90FD;&#x6269;&#x5C55;&#x4E86; Object &#x7C7B;&#x7684;&#x7C7B;&#x7C7B;&#x578B;&#x3002;</li>
+</ul>
+</blockquote>
+<h4>4.2.1. equals &#x65B9;&#x6CD5;</h4>
+<p><code>a.equal(b)</code> &#x7528;&#x4E8E;&#x68C0;&#x9A8C;&#x5BF9;&#x8C61; <code>a</code> &#x662F;&#x5426;&#x7B49;&#x4E8E;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61; <code>b</code>&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x5F53; <code>a</code> &#x6216; <code>b</code> &#x53EF;&#x80FD;&#x4E3A; <code>null</code> &#x65F6;&#xFF0C;&#x9700;&#x8981;&#x7528; <code>Object.equals(a,b)</code>&#xFF0C;&#x5982;&#x679C;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x90FD;&#x4E3A; <code>null</code>&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE; <code>true</code>&#x3002;</li>
+<li>&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x8C03;&#x7528; <code>equals()</code> &#x65F6;&#xFF0C;&#x9996;&#x5148;&#x8C03;&#x7528;&#x8D85;&#x7C7B;&#x7684; <code>super.equals()</code>&#xFF0C;&#x5982;&#x679C;&#x8FD4;&#x56DE; <code>false</code> &#x90A3;&#x4E48;&#x5BF9;&#x8C61;&#x5C31;&#x5FC5;&#x5B9A;&#x4E0D;&#x76F8;&#x7B49;&#x3002;</li>
+<li>&#x8BB0;&#x5F55;&#x4F5C;&#x4E3A;&#x4E00;&#x79CD;&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x5B57;&#x6BB5;&#x7684; <code>equals()</code> &#x65B9;&#x6CD5;&#xFF0C;&#x5F53;&#x4E24;&#x4E2A;&#x8BB0;&#x5F55;&#x5B9E;&#x4F8B;&#x4E2D;&#x76F8;&#x5E94;&#x5B57;&#x6BB5;&#x76F8;&#x7B49;&#x65F6;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x8BB0;&#x5F55;&#x5C31;&#x60F3;&#x7B49;&#x3002;</li>
+</ul>
+</blockquote>
+<pre data-role="codeBlock" data-info="Java class=&quot;line-numbers&quot;" class="language-java line-numbers"><span class="token comment">// &#x4E00;&#x79CD;&#x5408;&#x7406;&#x907F;&#x5F00;&#x5751;&#x7684; equals &#x65B9;&#x6CD5;</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Employee</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-boolean">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Object</span> otherObject<span class="token punctuation">)</span> <span class="token punctuation">{</span>     <span class="token comment">// &#x5C06;&#x663E;&#x793A;&#x53C2;&#x6570;&#x547D;&#x540D;&#x4E3A; otherObject</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token keyword keyword-this">this</span> <span class="token operator">==</span> otherObject<span class="token punctuation">)</span> <span class="token keyword keyword-return">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>       <span class="token comment">// &#x68C0;&#x6D4B; this &#x4E0E; otherObject &#x662F;&#x5426;&#x5F15;&#x7528;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>otherObject <span class="token operator">==</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">)</span> <span class="token keyword keyword-return">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>      <span class="token comment">// &#x68C0;&#x6D4B; otherObject &#x662F;&#x5426;&#x4E3A; null</span>
+    <span class="token comment">// &#x6BD4;&#x8F83; this &#x4E0E; otherObject &#x7684;&#x7C7B;</span>
+
+    <span class="token comment">// &#x5982;&#x679C; equals &#x7684;&#x8BED;&#x4E49;&#x5728;&#x6BCF;&#x4E2A;&#x5B50;&#x7C7B;&#x4E2D;&#x6709;&#x6240;&#x6539;&#x53D8;&#xFF0C;&#x5C31;&#x7528; getClass &#x68C0;&#x6D4B;</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> otherObject<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token comment">// &#x5982;&#x679C;&#x6240;&#x6709;&#x7684;&#x5B50;&#x7C7B;&#x90FD;&#x62E5;&#x6709;&#x7EDF;&#x4E00;&#x7684;&#x8BED;&#x4E49;&#xFF0C;&#x5C31;&#x662F;&#x7528; instanceof &#x68C0;&#x6D4B;</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>otherObject <span class="token keyword keyword-instanceof">instanceof</span> <span class="token class-name">ClassName</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword keyword-return">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">ClassName</span> other <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">ClassName</span><span class="token punctuation">)</span> otherObject<span class="token punctuation">;</span>  <span class="token comment">// &#x5C06; otherObject &#x8F6C;&#x6362;&#x4E3A;&#x76F8;&#x5E94;&#x7684;&#x7C7B;&#x7C7B;&#x578B;&#x53D8;&#x91CF;</span>
+
+    <span class="token comment">// &#x5230;&#x8FD9;&#x4E00;&#x6B65;&#xFF0C;&#x9700;&#x8981;&#x6BD4;&#x8F83;&#x6240;&#x6709;&#x5B57;&#x6BB5;&#xFF0C;&#x4F7F;&#x7528; == &#x6BD4;&#x8F83;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x5B57;&#x6BB5;&#xFF0C;&#x4F7F;&#x7528; equals &#x6BD4;&#x8F83;&#x5BF9;&#x8C61;&#x5B57;&#x6BB5;</span>
+    <span class="token keyword keyword-return">return</span> field1 <span class="token operator">==</span> other<span class="token punctuation">.</span>field1 <span class="token operator">&amp;&amp;</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>field2<span class="token punctuation">,</span> other<span class="token punctuation">.</span>field2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h4>4.2.2. hashCode &#x65B9;&#x6CD5;</h4>
+<p><b class="definition">&#x6563;&#x5217;&#x7801;&#xFF08;hash code&#xFF09;</b>&#x662F;&#x6709;&#x5BF9;&#x8C61;&#x5BFC;&#x51FA;&#x7684;&#x4E00;&#x4E2A;&#x6574;&#x578B;&#x503C;&#xFF08;&#x53EF;&#x80FD;&#x662F;&#x8D1F;&#x6570;&#xFF09;&#x3002;&#x4E24;&#x4E2A;&#x4E0D;&#x540C;&#x5BF9;&#x8C61;&#x7684;&#x6563;&#x5217;&#x7801;&#x57FA;&#x672C;&#x4E0D;&#x76F8;&#x540C;&#x3002;</p>
+<p><code>hashCode</code> &#x65B9;&#x6CD5;&#x5B9A;&#x4E49;&#x5728; <code>Object</code> &#x7C7B;&#x4E2D;&#xFF0C;&#x56E0;&#x6B64;&#x5BF9;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;&#x6563;&#x5217;&#x7801;&#xFF0C;&#x5176;&#x503C;&#x7531;&#x5BF9;&#x8C61;&#x7684;&#x5B58;&#x50A8;&#x5730;&#x5740;&#x5F97;&#x51FA;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6563;&#x5217;&#x7801;&#x662F;&#x7531;&#x5185;&#x5BB9;&#x5BFC;&#x51FA;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5F15;&#x7528;&#x540C;&#x6837;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x4E0D;&#x540C;&#x5BF9;&#x8C61;&#x5177;&#x6709;&#x76F8;&#x540C;&#x6563;&#x5217;&#x7801;&#x3002;</li>
+</ul>
+</blockquote>
+<p>&#x5BF9;&#x4E8E;&#x91CD;&#x65B0;&#x5B9A;&#x4E49; <code>equals()</code> &#x7684;&#x7C7B;&#xFF0C;&#x5FC5;&#x987B;&#x4E3A;&#x53EF;&#x80FD;&#x63D2;&#x5165;&#x7684;&#x5BF9;&#x8C61;&#x91CD;&#x65B0;&#x5B9A;&#x4E49; <code>hashCode()</code> &#x65B9;&#x6CD5;&#x3002;&#x5B9A;&#x4E49;&#x7684;&#x65F6;&#x5019;&#x8981;&#x5C3D;&#x53EF;&#x80FD;&#x4F7F;&#x5F97;&#x4E0D;&#x540C;&#x5BF9;&#x8C61;&#x7684;&#x6563;&#x5217;&#x7801;&#x5C3D;&#x91CF;&#x5206;&#x6563;&#x5F00;&#x3002;&#x4E14; <code>hashCode</code> &#x5FC5;&#x987B;&#x4E0E; <code>equals</code> &#x76F8;&#x5BB9;&#xFF0C;&#x5F53; <code>x.equals(y)</code> &#x8FD4;&#x56DE; <code>true</code> &#x65F6;&#xFF0C;<code>x.hashCode()</code> &#x5FC5;&#x987B;&#x7B49;&#x4E8E; <code>y.hashCode()</code>&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;<code>hashCOde()</code> &#x8BA1;&#x7B97;&#x6563;&#x5217;&#x503C;&#x7684;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x4E0E; <code>equals()</code> &#x5BF9;&#x6BD4;&#x7684;&#x53C2;&#x6570;&#x4E00;&#x81F4;&#x3002;</p>
+<pre data-role="codeBlock" data-info="Java class=&quot;line-numbers&quot;" class="language-java line-numbers"><span class="token comment">// &#x7EC4;&#x5408;&#x591A;&#x4E2A;&#x6563;&#x5217;&#x503C;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x8C03;&#x7528; `Objects.hash()` &#x5E76;&#x63D0;&#x4F9B;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x503C;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x3002;</span>
+<span class="token comment">// &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F1A;&#x4E3A;&#x6240;&#x6709;&#x53C2;&#x6570;&#x8C03;&#x7528; `Objects.hashCode()` &#x5E76;&#x7EC4;&#x5408;&#x8FD9;&#x4E9B;&#x6563;&#x5217;&#x503C;&#x3002;</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-int">int</span> <span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-return">return</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">hash</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> salary<span class="token punctuation">,</span> hireDay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// &#x4E0A;&#x8FF0;&#x65B9;&#x6CD5;&#x7B49;&#x540C;&#x4E8E;</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-int">int</span> <span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-return">return</span> <span class="token number">7</span><span class="token operator">*</span><span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span>neme<span class="token punctuation">)</span>   <span class="token comment">// 7&#x3001;11&#x3001;13&#x53EF;&#x66FF;&#x6362;&#x6210;&#x5176;&#x4ED6;</span>
+    <span class="token operator">+</span> <span class="token number">11</span><span class="token operator">*</span><span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span>
+    <span class="token operator">+</span> <span class="token number">13</span><span class="token operator">*</span><span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span>hireDay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h4>4.2.3. toString &#x65B9;&#x6CD5;</h4>
+<p><code>toString()</code> &#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8868;&#x793A;&#x5BF9;&#x8C61;&#x7684;&#x503C;&#xFF0C;&#x683C;&#x5F0F;&#x7C7B;&#x4F3C;&#x4E8E;&#xFF1A;&#x7C7B;&#x540D;[&#x5B57;&#x6BB5;&#x503C;]&#xFF0C;&#x5982; <code>java.Employee[name=...,salary=...]</code>&#x3002;&#x8BBE;&#x8BA1;&#x5B50;&#x7C7B;&#x65F6;&#xFF0C;&#x5E94;&#x8BE5;&#x5B9A;&#x4E49;&#x5B50;&#x7C7B;&#x7684; <code>toString()</code> &#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x52A0;&#x5165;&#x5B50;&#x7C7B;&#x5B57;&#x6BB5;&#x3002;&#x5982;&#x679C;&#x8D85;&#x7C7B;&#x4F7F;&#x7528;&#x4E86; <code>getClass().getName()</code> &#x90A3;&#x4E48;&#x5B50;&#x7C7B;&#x8C03;&#x7528; <code>super.toString()</code> &#x5373;&#x53EF;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x8C03;&#x7528; <code>print()</code> &#x548C;&#x4F7F;&#x7528; <code>&quot;&quot; +</code> &#x8FDE;&#x63A5;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x90FD;&#x662F;&#x8C03;&#x7528; <code>toString()</code> &#x65B9;&#x6CD5;&#x3002;</li>
+<li>&#x6570;&#x7EC4;&#x7EE7;&#x627F;&#x4E86; <code>Object</code> &#x7C7B;&#x7684; <code>toString</code> &#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#x8C03;&#x7528;&#x65F6;&#x907F;&#x514D;&#x4F7F;&#x7528; <code>&quot;&quot; + &#x6570;&#x7EC4;</code> &#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x800C;&#x5E94;&#x8BE5;&#x91C7;&#x7528; <code>Arrays.toString(&#x6570;&#x7EC4;)</code>&#x3002;&#x591A;&#x7EF4;&#x6570;&#x7EC4;&#x5219;&#x91C7;&#x7528; <code>Arrays.deepToString()</code>&#x3002;</li>
+</ul>
+</blockquote>
+<pre data-role="codeBlock" data-info="Java class=&quot;line-numbers&quot;" class="language-java line-numbers"><span class="token comment">// &#x8D85;&#x7C7B;</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Employee</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token keyword keyword-public">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-return">return</span> <span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;[name=]&quot;</span> <span class="token operator">+</span> name
+      <span class="token operator">+</span> <span class="token string">&quot;,salary=&quot;</span> <span class="token operator">+</span> salary <span class="token operator">+</span> <span class="token string">&quot;,hireDay=&quot;</span> <span class="token operator">+</span> hireDay <span class="token operator">+</span> <span class="token string">&quot;]&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// &#x5B50;&#x7C7B;</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Manager</span> <span class="token keyword keyword-extends">extends</span> <span class="token class-name">Employee</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token keyword keyword-public">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-return">return</span> <span class="token keyword keyword-super">super</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;[bonus=&quot;</span> <span class="token operator">+</span> bonus <span class="token operator">+</span> <span class="token string">&quot;]&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3>4.3. &#x6CDB;&#x578B;&#x6570;&#x7EC4;&#x5217;&#x8868;</h3>
+<p><code>ArrayList</code> &#x5C31;&#x662F;&#x4E00;&#x79CD;&#x6709;<b class="definition">&#x7C7B;&#x578B;&#x53C2;&#x6570;&#xFF08;type parameter&#xFF09;</b>&#x7684;<b class="definition">&#x6CDB;&#x578B;&#x7C7B;&#xFF08;generic class&#xFF09;</b>&#xFF0C;&#x79F0;&#x4E3A;<b class="definition">&#x6570;&#x7EC4;&#x5217;&#x8868;</b>&#x3002;&#x5B83;&#x7BA1;&#x7406;&#x7740;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x7684;&#x5BF9;&#x8C61;&#x5F15;&#x7528;&#x6570;&#x7EC4;&#xFF0C;&#x5F53;&#x6570;&#x7EC4;&#x7A7A;&#x95F4;&#x7528;&#x5C3D;&#x65F6;&#x80FD;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x66F4;&#x5927;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x5E76;&#x5C06;&#x6240;&#x6709;&#x5BF9;&#x8C61;&#x62F7;&#x8D1D;&#x5230;&#x65B0;&#x6570;&#x7EC4;&#x4E2D;&#x3002;</p>
+<p><span class="tip"></span>&#x5982;&#x679C;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#x5217;&#x8868;&#x6240;&#x9700;&#x7684;&#x5BB9;&#x91CF;&#xFF08;&#x5047;&#x8BBE;&#x662F;100&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4F7F;&#x7528; <code>add()</code> &#x586B;&#x5145;&#x5217;&#x8868;&#x4E4B;&#x524D;&#x8C03;&#x7528; <code>ensureCapacity(100)</code>&#xFF0C;&#x8FD9;&#x6837;&#x5728;&#x524D; 100 &#x6B21; <code>add()</code> &#x8C03;&#x7528;&#x65F6;&#x4E0D;&#x4F1A;&#x5E26;&#x6765;&#x5F88;&#x5927;&#x7684;&#x5F00;&#x9500;&#x3002;</p>
+<pre data-role="codeBlock" data-info="Java class=&apos;line-numbers&apos;" class="language-java line-numbers"><span class="token comment">// &#x83F1;&#x5F62;&#x8BED;&#x6CD5;&#xFF0C;&#x76F4;&#x63A5;&#x5206;&#x914D;100&#x4E2A;&#x5BB9;&#x91CF;</span>
+<span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Employee</span><span class="token punctuation">&gt;</span></span> staff <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Java 10</span>
+<span class="token keyword keyword-var">var</span> staff <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Employee</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+staff<span class="token punctuation">.</span><span class="token function">ensureCapacity</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></pre><p>&#x4E00;&#x65E6;&#x80FD;&#x591F;&#x786E;&#x5B9A;&#x6570;&#x7EC4;&#x5217;&#x8868;&#x7684;&#x5927;&#x5C0F;&#x4E0D;&#x518D;&#x6539;&#x53D8;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>trimToSize()</code> &#x56FA;&#x5B9A;&#x5185;&#x5B58;&#x5757;&#x7684;&#x7A7A;&#x95F4;&#x5E76;&#x91CA;&#x653E;&#x591A;&#x4F59;&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x3002;&#x4F46;&#x56FA;&#x5B9A;&#x540E;&#x5982;&#x679C;&#x518D;&#x6B21;&#x6DFB;&#x52A0;&#x65B0;&#x5143;&#x7D20;&#x5C31;&#x9700;&#x8981;&#x518D;&#x6B21;&#x79FB;&#x52A8;&#x5185;&#x5B58;&#x5757;&#xFF0C;&#x4F1A;&#x9020;&#x6210;&#x5927;&#x91CF;&#x7684;&#x65F6;&#x95F4;&#x6D88;&#x8017;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x63D2;&#x5165; <code>add</code> &#x548C;&#x5220;&#x9664; <code>remove</code> &#x6548;&#x7387;&#x5F88;&#x4F4E;&#xFF0C;&#x5F53;&#x6570;&#x7EC4;&#x89C4;&#x6A21;&#x8F83;&#x5927;&#x4E14;&#x63D2;&#x5165;&#x548C;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x9891;&#x7E41;&#x53D1;&#x751F;&#x65F6;&#xFF0C;&#x5E94;&#x8BE5;&#x8003;&#x8651;&#x4F7F;&#x7528;&#x94FE;&#x8868;&#x800C;&#x4E0D;&#x662F;&#x6570;&#x7EC4;&#x5217;&#x8868;&#x3002;</li>
+</ul>
+</blockquote>
+<h3>4.4. &#x5BF9;&#x8C61;&#x5305;&#x88C5;&#x5668;&#x4E0E;&#x81EA;&#x52A8;&#x88C5;&#x7BB1;</h3>
+<p><b class="definition">&#x5305;&#x88C5;&#x5668;&#xFF08;wrapper&#xFF09;</b>&#x6307;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF08;<code>int</code>&#x3001;<code>float</code> &#x7B49;&#xFF09;&#x5BF9;&#x5E94;&#x7684;&#x7C7B;&#xFF08;<code>Int</code>&#x3001;<code>Float</code> &#x7B49;&#xFF09;&#x3002;<b class="definition">&#x81EA;&#x52A8;&#x88C5;&#x7BB1;&#xFF08;autoboxing&#xFF09;</b>&#x6307;&#x8C03;&#x7528; <code>ArrayList&lt;Integer&gt;.add(3)</code> &#x65F6;&#x5C06;&#x81EA;&#x52A8;&#x6362;&#x6210; <code>ArrayList&lt;Integer&gt;.add(Integer.ValueOf(3))</code>&#x3002;<b class="definition">&#x81EA;&#x52A8;&#x62C6;&#x7BB1;&#xFF08;u&#x4F60;boxed&#xFF09;</b>&#x5219;&#x4E0E;&#x4E4B;&#x76F8;&#x53CD;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x88C5;&#x7BB1;&#x548C;&#x62C6;&#x7BB1;&#x662F;&#x7F16;&#x8BD1;&#x5668;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x800C;&#x975E;&#x865A;&#x62DF;&#x673A;&#x3002;</li>
+</ul>
+</blockquote>
+<pre data-role="codeBlock" data-info="Java class=&apos;line-numbers&apos;" class="language-java line-numbers"><span class="token comment">// &#x5C06; Integer &#x8F6C;&#x4E3A; int</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">intVallue</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// &#x5C06; int &#x7C7B;&#x578B;&#x7684;&#x6570;&#x5B57;&#x8F6C;&#x5316;&#x4E3A;&#x5341;&#xFF08;radix&#xFF09;&#x8FDB;&#x5236;&#x7684; String</span>
+<span class="token keyword keyword-static">static</span> <span class="token class-name">String</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> i<span class="token punctuation">)</span>
+<span class="token keyword keyword-static">static</span> <span class="token class-name">String</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> i<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> radix<span class="token punctuation">)</span>
+<span class="token comment">// &#x5C06; String &#x7C7B;&#x578B;&#x7684;&#x6570;&#x5B57;&#x8F6C;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;&#x5341;&#xFF08;radix&#xFF09;&#x8FDB;&#x5236;&#x7684; int</span>
+<span class="token keyword keyword-static">static</span> <span class="token keyword keyword-int">int</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span>
+<span class="token keyword keyword-static">static</span> <span class="token keyword keyword-int">int</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> radix<span class="token punctuation">)</span>
+<span class="token comment">// &#x5C06; String &#x7C7B;&#x578B;&#x7684;&#x6570;&#x5B57;&#x8F6C;&#x5316;&#x4E3A;&#x5341;&#xFF08;radix&#xFF09;&#x8FDB;&#x5236;&#x7684; Integer</span>
+<span class="token keyword keyword-static">static</span> <span class="token class-name">Integer</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span>
+<span class="token keyword keyword-static">static</span> <span class="token class-name">Integer</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> radix<span class="token punctuation">)</span>
+<span class="token comment">// &#x5C06; String &#x7C7B;&#x578B;&#x7684;&#x6570;&#x5B57;&#x8F6C;&#x5316;&#x4E3A; Number</span>
+<span class="token class-name">Number</span> <span class="token function">parse</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3>4.5. &#x53C2;&#x6570;&#x4E2A;&#x6570;&#x53EF;&#x53D8;&#x7684;&#x65B9;&#x6CD5;</h3>
+<p><b class="definition">&#x53D8;&#x53C2;&#xFF08;varargs&#xFF09;</b>&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x53C2;&#x6570;&#x4E2A;&#x6570;&#x53EF;&#x53D8;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5982; <code>print()</code> &#x65B9;&#x6CD5;&#x3002;&#x7528; <code>...</code> &#x8868;&#x793A;&#x63A5;&#x53D7;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x3002;</p>
+<pre data-role="codeBlock" data-info="Java class=&apos;line-numbers&apos;" class="language-java line-numbers"><span class="token comment">// &#x6700;&#x5927;&#x503C;&#x65B9;&#x6CD5;</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-double">double</span> <span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword keyword-double">double</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> values<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-double">double</span> largest <span class="token operator">=</span> <span class="token class-name">Double</span><span class="token punctuation">.</span>NEGATIVE_INFINITY<span class="token punctuation">;</span>  <span class="token comment">// &#x8D1F;&#x65E0;&#x7A77;&#x5927;</span>
+  <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-double">double</span> v <span class="token operator">:</span> values<span class="token punctuation">)</span> <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>v <span class="token operator">&gt;</span> largest<span class="token punctuation">)</span> largest <span class="token operator">=</span> v<span class="token punctuation">;</span>
+  <span class="token keyword keyword-return">return</span> largest<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// &#x8C03;&#x7528;&#x65B9;&#x6CD5;</span>
+<span class="token keyword keyword-double">double</span> d <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span><span class="token number">3.1</span><span class="token punctuation">,</span> <span class="token number">2.2222</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3>4.6. &#x62BD;&#x8C61;&#x7C7B;</h3>
+<p>&#x4F7F;&#x7528;&#x5173;&#x952E;&#x5B57; <code>abstract</code> &#x58F0;&#x660E;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x62BD;&#x8C61;&#x7C7B;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x3001;&#x62BD;&#x8C61;&#x5B57;&#x6BB5;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x5305;&#x542B;&#x3002;&#x5305;&#x542B;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x7684;&#x7C7B;&#x672C;&#x8EAB;&#x5FC5;&#x987B;&#x58F0;&#x660E;&#x4E3A;&#x62BD;&#x8C61;&#x7C7B;&#x3002;&#x62BD;&#x8C61;&#x7C7B;&#x4E0D;&#x80FD;&#x5B9E;&#x4F8B;&#x5316;&#xFF0C;&#x4F46;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x5176;<b class="definition">&#x5BF9;&#x8C61;&#x53D8;&#x91CF;&#xFF08;object variable&#xFF09;</b>&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x53D8;&#x91CF;&#x53EA;&#x80FD;&#x5F15;&#x7528;&#x975E;&#x62BD;&#x8C61;&#x5B50;&#x7C7B;&#x7684;&#x5BF9;&#x8C61;</p>
+<pre data-role="codeBlock" data-info="Java class=&apos;line-numbers&apos;" class="language-java line-numbers"><span class="token keyword keyword-public">public</span> <span class="token keyword keyword-abstract">abstract</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-abstract">abstract</span> <span class="token class-name">String</span> <span class="token function">getDescription</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword keyword-new">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">&quot;ABC&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment">// wrong</span>
+<span class="token class-name">Person</span> <span class="token class-name">P</span> <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token string">&quot;ABC&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// right</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x76F8;&#x5F53;&#x4E8E;&#x5360;&#x4F4D;&#x7B26;&#xFF0C;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x660E;&#x786E;&#x5B9A;&#x4E49;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x4FDD;&#x7559;&#x4E3A;&#x672A;&#x5B9A;&#x4E49;&#x7684;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x3002;</p>
+<h3>4.7. &#x679A;&#x4E3E;&#x7C7B;</h3>
+<p><b class="definition">&#x679A;&#x4E3E;&#x7C7B;&#xFF08;enumerated type&#xFF09;</b>&#x53EA;&#x5305;&#x542B;&#x56FA;&#x5B9A;&#x7684;&#x3001;&#x6709;&#x9650;&#x7684;&#x4E00;&#x7EC4;&#x503C;&#x3002;&#x679A;&#x4E3E;&#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;&#x53EA;&#x80FD;&#x5B58;&#x50A8;&#x8FD9;&#x79CD;&#x679A;&#x4E3E;&#x7C7B;&#x7684;&#x67D0;&#x4E2A;&#x503C;&#x6216; <code>null</code>&#x3002;</p>
+<pre data-role="codeBlock" data-info="Java class=&apos;line-numbers&apos;" class="language-java line-numbers"><span class="token comment">// &#x81EA;&#x5B9A;&#x4E49;&#x679A;&#x4E3E;&#x7C7B;</span>
+<span class="token keyword keyword-enum">enum</span> <span class="token class-name">Size</span> <span class="token punctuation">{</span>SMALL<span class="token punctuation">,</span> MEDIUM<span class="token punctuation">,</span> LARGE<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// &#x81EA;&#x5B9A;&#x4E49;&#x5305;&#x542B;&#x6784;&#x9020;&#x5668;&#x548C;&#x5B57;&#x6BB5;&#x7684;&#x679A;&#x4E3E;&#x7C7B;</span>
+<span class="token keyword keyword-enum">enum</span> <span class="token class-name">Size</span> <span class="token punctuation">{</span>
+  <span class="token function">SMALL</span><span class="token punctuation">(</span><span class="token string">&quot;S&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">MEDIUM</span><span class="token punctuation">(</span><span class="token string">&quot;M&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">LARGE</span><span class="token punctuation">(</span><span class="token string">&quot;L&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword keyword-private">private</span> <span class="token class-name">String</span> abbreviation<span class="token punctuation">;</span>
+
+  <span class="token class-name">Size</span><span class="token punctuation">(</span><span class="token class-name">String</span> abb<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>abbreviation <span class="token operator">=</span> abb<span class="token punctuation">;</span><span class="token punctuation">}</span>
+  <span class="token keyword keyword-public">public</span> <span class="token class-name">String</span> <span class="token function">gerAbbreviation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword keyword-return">return</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>abbreviation<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// &#x58F0;&#x660E;&#x679A;&#x4E3E;&#x53D8;&#x91CF;</span>
+<span class="token class-name">Size</span> s <span class="token operator">=</span> <span class="token class-name">Size</span><span class="token punctuation">.</span>LARGE<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>&#x679A;&#x4E3E;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x5668;&#x90FD;&#x662F;&#x7A00;&#x6709;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x7701;&#x7565; <code>private</code>&#xFF0C;&#x6240;&#x6709;&#x679A;&#x4E3E;&#x7C7B;&#x90FD;&#x662F; <code>Enum</code> &#x7684;&#x5B50;&#x7C7B;&#xFF0C;&#x7EE7;&#x627F;&#x4E86; <code>toString()</code>&#x3001; <code>values()</code> &#x548C; <code>ordinal()</code> &#x7B49;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre data-role="codeBlock" data-info="Java class=&apos;line-numbers&apos;" class="language-java line-numbers"><span class="token comment">// &#x8FD4;&#x56DE;&#x7ED9;&#x5B9A;&#x7684;&#x7C7B; enumclass &#x4E2D;&#x542B;&#x6709;&#x6307;&#x5B9A;&#x540D;&#x5B57; name &#x7684;&#x679A;&#x4E3E;&#x5E38;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x5C4F;&#x5E55;&#x8F93;&#x5165;&#x7684;&#x503C;&#x5E76;&#x8F6C;&#x5316;&#x4E3A;&#x679A;&#x4E3E;&#x53D8;&#x91CF;&#x3002;</span>
+<span class="token keyword keyword-static">static</span> <span class="token class-name">Enum</span> <span class="token class-name">Enum</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token class-name">Class</span> enumClass<span class="token punctuation">,</span> <span class="token class-name">String</span> name<span class="token punctuation">)</span>
+<span class="token comment">// &#x8FD4;&#x56DE;&#x679A;&#x4E3E;&#x5E38;&#x91CF;&#x540D;</span>
+<span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// &#x8FD4;&#x56DE;&#x679A;&#x4E3E;&#x5E38;&#x91CF;&#x5728; enum &#x4E2D;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4ECE; 0 &#x5F00;&#x59CB;&#x8BA1;&#x6570;</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">ordinal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// &#x8FD4;&#x56DE;&#x5305;&#x542B;&#x5168;&#x90E8;&#x679A;&#x4E3E;&#x503C;&#x7684;&#x6570;&#x7EC4;</span>
+enumClass<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// &#x6BD4;&#x8F83;&#x524D;&#x540E;&#x987A;&#x5E8F;&#x3002;&#x5982;&#x679C; this &#x51FA;&#x73B0;&#x5728; other &#x524D;&#x9762;&#xFF0C;&#x8FD4;&#x56DE;&#x8D1F;&#x6574;&#x6570;&#xFF1B;&#x5982;&#x679C;&#x5728;&#x540E;&#x9762;&#x8FD4;&#x56DE;&#x6B63;&#x6574;&#x6570;&#xFF1B;&#x5426;&#x5219; 0</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">compareTo</span><span class="token punctuation">(</span><span class="token class-name">E</span> other<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3>&#x5BC6;&#x5C01;&#x7C7B;</h3>
+</div>
+</section>
 
       </div>
       
